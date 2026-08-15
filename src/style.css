@@ -1,29 +1,29 @@
 /* ==========================================================================
-   GENLAYER TITANIUM OBSIDIAN STUDIO DESIGN SYSTEM
+   GENLAYER OBSIDIAN & TITANIUM MOTION STUDIO
    Engineered for High-Performance Vector Loading Animations & AI Consensus
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
 
 :root {
-  /* Titanium Obsidian Core Tokens */
-  --obsidian-base: #08090C;
-  --obsidian-surface: #0E1017;
-  --titanium-panel: #151821;
-  --titanium-panel-hover: #1C202C;
-  --titanium-glass: rgba(21, 24, 33, 0.75);
+  /* Obsidian & Titanium Core Tokens */
+  --obsidian-base: #07080A;
+  --obsidian-surface: #0D0F15;
+  --titanium-panel: #141720;
+  --titanium-panel-hover: #1A1E2B;
+  --titanium-glass: rgba(18, 22, 31, 0.75);
 
-  /* Precise Hairline Borders */
+  /* Precise Metallic Hairline Borders */
   --border-hairline: rgba(255, 255, 255, 0.08);
   --border-hairline-bright: rgba(255, 255, 255, 0.16);
-  --border-cyan-glow: rgba(0, 240, 255, 0.4);
+  --border-cyan-glow: rgba(0, 245, 255, 0.4);
 
-  /* Electric Chromatic Accents (No Generic Purple!) */
-  --cyan-plasma: #00F0FF;
-  --cyan-plasma-glow: rgba(0, 240, 255, 0.5);
+  /* Electric Prism Accents */
+  --cyan-plasma: #00F5FF;
+  --cyan-plasma-glow: rgba(0, 245, 255, 0.5);
   --solar-amber: #FFB800;
   --solar-amber-glow: rgba(255, 184, 0, 0.45);
-  --acid-emerald: #00FF9D;
+  --lime-glow: #CCFF00;
   --laser-violet: #818CF8;
   --titanium-white: #F8FAFC;
   --text-muted: #8E99A8;
@@ -42,15 +42,15 @@
 /* Environment Modes */
 body.env-oled {
   --obsidian-base: #000000;
-  --obsidian-surface: #050507;
-  --titanium-panel: #0B0D12;
+  --obsidian-surface: #040507;
+  --titanium-panel: #090B10;
   --border-hairline: rgba(255, 255, 255, 0.05);
 }
 
 body.env-glass {
-  --obsidian-base: #0B0E14;
-  --obsidian-surface: #111622;
-  --titanium-panel: rgba(23, 29, 44, 0.65);
+  --obsidian-base: #0A0D14;
+  --obsidian-surface: #0F1420;
+  --titanium-panel: rgba(20, 26, 38, 0.65);
   --border-hairline: rgba(255, 255, 255, 0.12);
 }
 
@@ -61,15 +61,15 @@ body.env-glass {
 }
 
 body {
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: var(--obsidian-base);
   color: var(--titanium-white);
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.5;
   background-image: 
-    radial-gradient(circle at 10% 15%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 85%, rgba(255, 184, 0, 0.04) 0%, transparent 40%);
+    radial-gradient(circle at 12% 18%, rgba(0, 245, 255, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(255, 184, 0, 0.04) 0%, transparent 40%);
   background-attachment: fixed;
 }
 
@@ -78,8 +78,8 @@ body {
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
@@ -116,7 +116,7 @@ body {
 }
 
 .studio-brand-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -135,8 +135,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(0, 240, 255, 0.06);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: rgba(0, 245, 255, 0.06);
+  border: 1px solid rgba(0, 245, 255, 0.2);
   padding: 0.25rem 0.75rem;
   border-radius: 100px;
   font-family: 'JetBrains Mono', monospace;
@@ -214,8 +214,8 @@ body {
 }
 
 .studio-deck-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.8rem;
+  font-family: 'Sora', sans-serif;
+  font-size: 3rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -223,7 +223,7 @@ body {
 }
 
 .studio-deck-title .accent-cyan {
-  background: linear-gradient(135deg, #00F0FF 0%, #FFFFFF 60%, #FFB800 100%);
+  background: linear-gradient(135deg, #00F5FF 0%, #FFFFFF 60%, #FFB800 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -259,7 +259,7 @@ body {
 
 /* Left: 3D Holographic Viewport */
 .viewport-deck {
-  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.08) 0%, #080A0E 80%);
+  background: radial-gradient(circle at center, rgba(0, 245, 255, 0.08) 0%, #06070B 80%);
   border: 1px solid var(--border-hairline);
   border-radius: 12px;
   min-height: 380px;
@@ -323,7 +323,7 @@ body {
 }
 
 .console-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   display: flex;
@@ -384,7 +384,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.4rem;
-  background: #090B10;
+  background: #080A0E;
   padding: 0.3rem;
   border-radius: 8px;
   border: 1px solid var(--border-hairline);
@@ -415,7 +415,7 @@ body {
   border: none;
   border-radius: 8px;
   padding: 0.85rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-weight: 800;
   font-size: 0.92rem;
   cursor: pointer;
@@ -431,11 +431,11 @@ body {
 .btn-studio-export:hover {
   transform: translateY(-2px);
   filter: brightness(1.1);
-  box-shadow: 0 6px 25px rgba(0, 240, 255, 0.6);
+  box-shadow: 0 6px 25px rgba(0, 245, 255, 0.6);
 }
 
 /* ==========================================================================
-   SPINNER 1: GENLAYER QUANTUM MARK PULSAR (HERO ICONIC ANIMATION)
+   SPINNER 1: GENLAYER QUANTUM CORE PULSAR (FLAGSHIP MARK)
    ========================================================================== */
 
 .gl-spinner-quantum {
@@ -472,7 +472,7 @@ body {
 }
 
 @keyframes gl-wing-morph-left {
-  0%, 100% { transform: rotate(0deg) scale(1) translate(0, 0); fill: #00F0FF; }
+  0%, 100% { transform: rotate(0deg) scale(1) translate(0, 0); fill: #00F5FF; }
   35% { transform: rotate(-18deg) scale(1.08) translate(-6px, -4px); fill: #818CF8; }
   70% { transform: rotate(10deg) scale(0.92) translate(3px, 2px); fill: #FFB800; }
 }
@@ -480,12 +480,12 @@ body {
 @keyframes gl-wing-morph-right {
   0%, 100% { transform: rotate(0deg) scale(1) translate(0, 0); fill: #FFB800; }
   35% { transform: rotate(18deg) scale(1.08) translate(6px, -4px); fill: #818CF8; }
-  70% { transform: rotate(-10deg) scale(0.92) translate(-3px, 2px); fill: #00F0FF; }
+  70% { transform: rotate(-10deg) scale(0.92) translate(-3px, 2px); fill: #00F5FF; }
 }
 
 @keyframes gl-core-pulse {
   0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px #FFFFFF); }
-  50% { transform: scale(1.35); filter: drop-shadow(0 0 24px #00F0FF); }
+  50% { transform: scale(1.35); filter: drop-shadow(0 0 24px #00F5FF); }
 }
 
 @keyframes gl-floating {
@@ -758,7 +758,7 @@ body {
 
 .arena-visual-box {
   height: 330px;
-  background: radial-gradient(circle at center, rgba(0, 240, 255, 0.06) 0%, #06070B 80%);
+  background: radial-gradient(circle at center, rgba(0, 245, 255, 0.06) 0%, #06070B 80%);
   border: 1px solid var(--border-hairline);
   border-radius: 12px;
   position: relative;
@@ -787,9 +787,9 @@ body {
 }
 
 .cp-validator-node.agree {
-  border-color: var(--acid-emerald);
-  box-shadow: 0 0 16px var(--acid-emerald);
-  color: var(--acid-emerald);
+  border-color: var(--lime-glow);
+  box-shadow: 0 0 16px var(--lime-glow);
+  color: var(--lime-glow);
 }
 
 .cp-validator-node.leader {
@@ -863,7 +863,7 @@ body {
 
 .log-line { color: var(--text-muted); }
 .log-line.cyan { color: var(--cyan-plasma); }
-.log-line.green { color: var(--acid-emerald); font-weight: 700; }
+.log-line.green { color: var(--lime-glow); font-weight: 700; }
 .log-line.amber { color: var(--solar-amber); }
 
 .btn-trigger-consensus {
@@ -900,7 +900,7 @@ body {
 }
 
 .section-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -975,8 +975,8 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.68rem;
   color: var(--cyan-plasma);
-  background: rgba(0, 240, 255, 0.08);
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: rgba(0, 245, 255, 0.08);
+  border: 1px solid rgba(0, 245, 255, 0.2);
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
   font-weight: 600;
@@ -1010,7 +1010,7 @@ body {
 }
 
 .btn-card-action:hover {
-  background: rgba(0, 240, 255, 0.12);
+  background: rgba(0, 245, 255, 0.12);
   border-color: var(--cyan-plasma);
   color: var(--cyan-plasma);
   transform: translateY(-1px);
@@ -1074,7 +1074,7 @@ body {
 .modal-tab-btn.active {
   background: var(--titanium-panel);
   color: var(--cyan-plasma);
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  border: 1px solid rgba(0, 245, 255, 0.3);
 }
 
 .code-block-wrap {
