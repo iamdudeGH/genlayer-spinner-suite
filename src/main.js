@@ -2,7 +2,7 @@ import './style.css';
 import { SPINNERS } from './spinners.js';
 
 // State
-let activeSpecimenId = 'prism';
+let activeSpecimenId = 'monolith';
 let isPlaying = true;
 let isWireframeActive = false;
 let currentTab = 'react';
@@ -44,7 +44,7 @@ function renderCrucible() {
     <!-- Top HUD -->
     <div class="stage-hud-top">
       <div>SPECIMEN: <span>${s.name.toUpperCase()}</span></div>
-      <div>CORE: <span>GENLAYER_KINETIC_V1</span></div>
+      <div>CORE: <span>GENLAYER_DUAL_WING</span></div>
       <div>GPU: <span>60.0 FPS</span></div>
     </div>
 
@@ -146,7 +146,7 @@ window.selectSpecimen = function(id) {
   if (SPINNERS[id]) {
     activeSpecimenId = id;
     renderCrucible();
-    showToast(`Loaded Specimen: ${SPINNERS[id].name}`);
+    showToast(`Loaded: ${SPINNERS[id].name}`);
     window.scrollTo({ top: 220, behavior: 'smooth' });
   }
 };
@@ -165,7 +165,7 @@ window.toggleWireframe = function() {
   if (layer) layer.classList.toggle('active', isWireframeActive);
   const btn = document.getElementById('btn-wireframe');
   if (btn) btn.classList.toggle('active', isWireframeActive);
-  showToast(isWireframeActive ? 'Vector Vertices Overlay: ON' : 'Vector Vertices: OFF');
+  showToast(isWireframeActive ? 'Vector Wireframe: ON' : 'Vector Wireframe: OFF');
 };
 
 // Export Code Sheet

@@ -1,35 +1,34 @@
 /* ==========================================================================
-   GENLAYER KINETIC LAB — ANTIGRAVITY SPATIAL & WEIGHTLESS EDITION
-   Pure Monochromatic Black & White. 3D Spatial Depth. Floating Gyro Physics.
+   GENLAYER DUAL-WING KINETIC STUDIO — OFFICIAL MONOCHROMATIC SUITE
+   Strict Black & White. 5 Bespoke Dual-Wing Motions. 3D Spatial Gyro.
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800;900&display=swap');
 
 :root {
-  /* Monochromatic Spatial Tokens */
+  /* Official Monochromatic Identity */
   --bg-deep: #000000;
   --bg-surface: #070709;
   --bg-panel: rgba(18, 18, 22, 0.65);
   --bg-panel-hover: rgba(28, 28, 35, 0.85);
 
-  /* Antigravity Glassmorphism & Hairlines */
+  /* Hairlines & Specular Highlights */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.22);
   --border-glow: rgba(255, 255, 255, 0.4);
 
-  /* High-Luminescence Specular Highlights */
   --accent-white: #FFFFFF;
   --accent-glow: rgba(255, 255, 255, 0.6);
   --silver-bright: #E4E4E7;
   --silver-mid: #A1A1AA;
-  --silver-dark: #52525B;
+  --silver-dark: #71717A;
 
   /* Typography */
   --text-pure: #FFFFFF;
   --text-muted: #A1A1AA;
   --text-dim: #71717A;
 
-  /* Spatial Transform Coordinates */
+  /* Spatial State */
   --tilt-x: 0deg;
   --tilt-y: 0deg;
   --anim-speed: 2.0s;
@@ -54,7 +53,7 @@ body {
   perspective: 1200px;
 }
 
-/* Spatial Starfield / Blueprint Matrix Backdrop */
+/* Precision Blueprint Grid */
 .blueprint-grid {
   position: fixed;
   inset: 0;
@@ -81,7 +80,7 @@ body {
   z-index: 1;
 }
 
-/* Floating Header */
+/* Header */
 .studio-nav {
   padding: 2rem 0 1.5rem;
   display: flex;
@@ -219,7 +218,7 @@ body {
 }
 
 /* ==========================================================================
-   THE ANTIGRAVITY KINETIC CRUCIBLE (3D FLOATING VIEWPORT)
+   THE ANTIGRAVITY KINETIC CRUCIBLE (3D VIEWPORT)
    ========================================================================== */
 
 .crucible-section {
@@ -236,11 +235,6 @@ body {
   backdrop-filter: blur(24px);
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transform-style: preserve-3d;
-  transition: transform 0.15s ease-out, box-shadow 0.25s ease;
-}
-
-.crucible-card:hover {
-  box-shadow: 0 45px 110px rgba(0, 0, 0, 1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 @media (max-width: 1024px) {
@@ -269,7 +263,6 @@ body {
   cursor: grabbing;
 }
 
-/* Spatial Coordinate Crosshairs */
 .crosshair-corner {
   position: absolute;
   width: 12px;
@@ -282,7 +275,6 @@ body {
 .ch-bl { bottom: 64px; left: 16px; border-bottom: 1px solid; border-left: 1px solid; }
 .ch-br { bottom: 64px; right: 16px; border-bottom: 1px solid; border-right: 1px solid; }
 
-/* Vector Anchor Points Overlay (Wireframe Mode) */
 .vector-vertices-layer {
   position: absolute;
   inset: 0;
@@ -305,7 +297,6 @@ body {
   transform: translate(-50%, -50%);
 }
 
-/* HUD Overlay */
 .stage-hud-top {
   position: absolute;
   top: 1.25rem;
@@ -325,7 +316,7 @@ body {
   font-weight: 700;
 }
 
-/* Floating Timeline Scrubber Bar */
+/* Timeline Scrubber Bar */
 .timeline-dock {
   position: absolute;
   bottom: 0;
@@ -401,7 +392,7 @@ body {
   min-width: 70px;
 }
 
-/* Control Inspector Deck (Right Panel) */
+/* Control Inspector Deck */
 .inspector-deck {
   padding: 1.75rem;
   display: flex;
@@ -462,7 +453,6 @@ body {
   cursor: pointer;
 }
 
-/* Toggle Buttons */
 .toggle-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -532,7 +522,7 @@ body {
 }
 
 /* ==========================================================================
-   FLOATING SPATIAL SPECIMEN CARDS
+   SPECIMEN GRID CARDS
    ========================================================================== */
 
 .specimens-section {
@@ -562,7 +552,6 @@ body {
   gap: 1.75rem;
 }
 
-/* Floating Card with Spatial Inertia */
 .specimen-box {
   background: rgba(14, 14, 18, 0.7);
   border: 1px solid var(--border-subtle);
@@ -573,7 +562,6 @@ body {
   backdrop-filter: blur(20px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
-  position: relative;
 }
 
 .specimen-box:hover {
@@ -594,6 +582,12 @@ body {
   margin-bottom: 1.25rem;
   position: relative;
   overflow: hidden;
+}
+
+.gl-svg-fluid {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
 .specimen-meta {
@@ -662,207 +656,203 @@ body {
 }
 
 /* ==========================================================================
-   5 MONOCHROMATIC KINETIC ENGINES (PURE BLACK & WHITE)
+   5 DUAL-WING KINETIC ENGINES (KEYFRAME RULES)
    ========================================================================== */
 
-/* 01: MONOLITH WING PULSAR */
-.gl-spinner-prism {
+/* 01: MONOLITH */
+.gl-spinner-monolith {
   width: var(--anim-size);
   height: calc(var(--anim-size) * 0.94);
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.45));
-  animation: gl-antigravity-float 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.5));
+  animation: gl-floating 3.5s ease-in-out infinite;
 }
-
-.gl-prism-wing-l {
+.gl-mono-wing-l {
   transform-origin: 44.26px 45px;
   animation: mono-morph-l var(--anim-speed) cubic-bezier(0.65, 0, 0.35, 1) infinite;
   animation-play-state: var(--anim-state);
 }
-
-.gl-prism-wing-r {
+.gl-mono-wing-r {
   transform-origin: 53.5px 45px;
   animation: mono-morph-r var(--anim-speed) cubic-bezier(0.65, 0, 0.35, 1) infinite;
   animation-play-state: var(--anim-state);
 }
-
-.gl-prism-core {
+.gl-mono-core {
   transform-origin: 48.64px 55.7px;
   animation: mono-core-strobe calc(var(--anim-speed) * 0.5) ease-in-out infinite;
   animation-play-state: var(--anim-state);
 }
-
 @keyframes mono-morph-l {
-  0%, 100% { transform: rotate(0deg) scale(1); fill: #FFFFFF; opacity: 1; }
-  35% { transform: rotate(-22deg) scale(1.12) translate(-8px, -5px); fill: #D4D4D8; opacity: 0.75; }
-  70% { transform: rotate(12deg) scale(0.92) translate(4px, 3px); fill: #A1A1AA; opacity: 0.9; }
+  0%, 100% { transform: rotate(0deg) scale(1); fill: #FFFFFF; }
+  35% { transform: rotate(-22deg) scale(1.12) translate(-8px, -5px); fill: #D4D4D8; }
+  70% { transform: rotate(12deg) scale(0.92) translate(4px, 3px); fill: #A1A1AA; }
 }
-
 @keyframes mono-morph-r {
-  0%, 100% { transform: rotate(0deg) scale(1); fill: #A1A1AA; opacity: 0.9; }
-  35% { transform: rotate(22deg) scale(1.12) translate(8px, -5px); fill: #D4D4D8; opacity: 0.75; }
-  70% { transform: rotate(-12deg) scale(0.92) translate(-4px, 3px); fill: #FFFFFF; opacity: 1; }
+  0%, 100% { transform: rotate(0deg) scale(1); fill: #A1A1AA; }
+  35% { transform: rotate(22deg) scale(1.12) translate(8px, -5px); fill: #D4D4D8; }
+  70% { transform: rotate(-12deg) scale(0.92) translate(-4px, 3px); fill: #FFFFFF; }
 }
-
 @keyframes mono-core-strobe {
   0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px #FFFFFF); }
   50% { transform: scale(1.4); filter: drop-shadow(0 0 28px #FFFFFF); }
 }
 
-@keyframes gl-antigravity-float {
+/* 02: ORIGAMI */
+.gl-spinner-origami {
+  width: var(--anim-size);
+  height: calc(var(--anim-size) * 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 700px;
+  filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.45));
+}
+.gl-origami-wing-l {
+  transform-origin: 44.26px 45px;
+  animation: origami-fold-l var(--anim-speed) cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-origami-wing-r {
+  transform-origin: 53.5px 45px;
+  animation: origami-fold-r var(--anim-speed) cubic-bezier(0.77, 0, 0.175, 1) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-origami-core {
+  transform-origin: 48.64px 55.7px;
+  animation: origami-pulse calc(var(--anim-speed) * 0.5) ease-in-out infinite;
+  animation-play-state: var(--anim-state);
+}
+@keyframes origami-fold-l {
+  0%, 100% { transform: rotateY(0deg) scale(1); opacity: 1; fill: #FFFFFF; }
+  50% { transform: rotateY(65deg) scale(0.9) translate(6px, 0); opacity: 0.65; fill: #71717A; }
+}
+@keyframes origami-fold-r {
+  0%, 100% { transform: rotateY(0deg) scale(1); opacity: 1; fill: #E4E4E7; }
+  50% { transform: rotateY(-65deg) scale(0.9) translate(-6px, 0); opacity: 0.65; fill: #A1A1AA; }
+}
+@keyframes origami-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px #FFFFFF); }
+  50% { transform: scale(1.5) translateY(-3px); filter: drop-shadow(0 0 24px #FFFFFF); }
+}
+
+/* 03: BEAT */
+.gl-spinner-beat {
+  width: var(--anim-size);
+  height: calc(var(--anim-size) * 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.5));
+}
+.gl-beat-wing-l {
+  transform-origin: 44.26px 45px;
+  animation: beat-snap-l calc(var(--anim-speed) * 0.8) cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-beat-wing-r {
+  transform-origin: 53.5px 45px;
+  animation: beat-snap-r calc(var(--anim-speed) * 0.8) cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-beat-core {
+  transform-origin: 48.64px 55.7px;
+  animation: beat-flash calc(var(--anim-speed) * 0.4) ease-in-out infinite;
+  animation-play-state: var(--anim-state);
+}
+@keyframes beat-snap-l {
+  0%, 100% { transform: scale(1) translateY(0); fill: #FFFFFF; }
+  25% { transform: scale(1.18) translateY(-6px) rotate(-8deg); fill: #FFFFFF; }
+  60% { transform: scale(0.92) translateY(2px) rotate(4deg); fill: #A1A1AA; }
+}
+@keyframes beat-snap-r {
+  0%, 100% { transform: scale(1) translateY(0); fill: #D4D4D8; }
+  35% { transform: scale(1.18) translateY(-6px) rotate(8deg); fill: #FFFFFF; }
+  70% { transform: scale(0.92) translateY(2px) rotate(-4deg); fill: #71717A; }
+}
+@keyframes beat-flash {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.45); opacity: 1; filter: drop-shadow(0 0 30px #FFFFFF); }
+}
+
+/* 04: ECLIPSE */
+.gl-spinner-eclipse {
+  width: var(--anim-size);
+  height: calc(var(--anim-size) * 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.45));
+}
+.gl-eclipse-wing-l {
+  transform-origin: 48.64px 46px;
+  animation: eclipse-orbit-l var(--anim-speed) ease-in-out infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-eclipse-wing-r {
+  transform-origin: 48.64px 46px;
+  animation: eclipse-orbit-r var(--anim-speed) ease-in-out infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-eclipse-core {
+  transform-origin: 48.64px 55.7px;
+  animation: eclipse-core-spin calc(var(--anim-speed) * 0.5) linear infinite;
+  animation-play-state: var(--anim-state);
+}
+@keyframes eclipse-orbit-l {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 1; }
+  50% { transform: scale(0.85) translate(12px, -8px) rotate(-15deg); opacity: 0.35; fill: #A1A1AA; }
+}
+@keyframes eclipse-orbit-r {
+  0%, 100% { transform: scale(1) translate(0, 0); opacity: 1; }
+  50% { transform: scale(0.85) translate(-12px, 8px) rotate(15deg); opacity: 0.35; fill: #A1A1AA; }
+}
+@keyframes eclipse-core-spin {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); filter: drop-shadow(0 0 20px #FFFFFF); }
+}
+
+/* 05: HYPERSPACE WARP */
+.gl-spinner-warp {
+  width: var(--anim-size);
+  height: calc(var(--anim-size) * 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.5));
+}
+.gl-warp-wing-l {
+  transform-origin: 44.26px 45px;
+  animation: warp-snap-l var(--anim-speed) cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-warp-wing-r {
+  transform-origin: 53.5px 45px;
+  animation: warp-snap-r var(--anim-speed) cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite;
+  animation-play-state: var(--anim-state);
+}
+.gl-warp-core {
+  transform-origin: 48.64px 55.7px;
+  animation: warp-core-beat calc(var(--anim-speed) * 0.5) ease-in-out infinite;
+  animation-play-state: var(--anim-state);
+}
+@keyframes warp-snap-l {
+  0%, 100% { transform: scale(1) translate(0, 0); fill: #FFFFFF; }
+  45% { transform: scale(0.65) translate(-16px, 10px) rotate(-30deg); fill: #71717A; opacity: 0.5; }
+}
+@keyframes warp-snap-r {
+  0%, 100% { transform: scale(1) translate(0, 0); fill: #FFFFFF; }
+  45% { transform: scale(0.65) translate(16px, 10px) rotate(30deg); fill: #71717A; opacity: 0.5; }
+}
+@keyframes warp-core-beat {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.6); filter: drop-shadow(0 0 32px #FFFFFF); }
+}
+
+@keyframes gl-floating {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(1deg); }
-}
-
-/* 02: MONO CHRONO GYROSCOPE */
-.gl-spinner-chrono {
-  position: relative;
-  width: var(--anim-size);
-  height: var(--anim-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 600px;
-}
-
-.chrono-gimbal-1 {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  border-top-color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
-  animation: gimbal-spin-x var(--anim-speed) linear infinite;
-  animation-play-state: var(--anim-state);
-}
-
-.chrono-gimbal-2 {
-  position: absolute;
-  inset: 16%;
-  border-radius: 50%;
-  border: 1.5px dashed rgba(255, 255, 255, 0.4);
-  animation: gimbal-spin-y calc(var(--anim-speed) * 1.4) linear infinite;
-  animation-play-state: var(--anim-state);
-}
-
-.chrono-core-mark {
-  width: 44%;
-  height: 44%;
-  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
-  animation: core-levitate 2s ease-in-out infinite;
-  animation-play-state: var(--anim-state);
-}
-
-@keyframes gimbal-spin-x {
-  0% { transform: rotateX(0deg) rotateZ(0deg); }
-  100% { transform: rotateX(360deg) rotateZ(360deg); }
-}
-
-@keyframes gimbal-spin-y {
-  0% { transform: rotateY(0deg) rotateZ(360deg); }
-  100% { transform: rotateY(360deg) rotateZ(0deg); }
-}
-
-@keyframes core-levitate {
-  0%, 100% { transform: translateY(0px) scale(0.95); }
-  50% { transform: translateY(-6px) scale(1.05); }
-}
-
-/* 03: MONO SYNAPTIC LATTICE */
-.gl-spinner-synapse {
-  position: relative;
-  width: var(--anim-size);
-  height: var(--anim-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.synapse-ring-outer {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 2px solid var(--border-subtle);
-}
-
-.synapse-node-satellite {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  box-shadow: 0 0 14px #FFFFFF;
-  animation: orbit-satellite var(--anim-speed) linear infinite;
-  animation-play-state: var(--anim-state);
-}
-
-@keyframes orbit-satellite {
-  from { transform: rotate(0deg) translateX(calc(var(--anim-size) * 0.46)) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(calc(var(--anim-size) * 0.46)) rotate(-360deg); }
-}
-
-/* 04: MONO MATRIX LASER BEAM */
-.gl-spinner-matrix {
-  position: relative;
-  width: var(--anim-size);
-  height: var(--anim-size);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.matrix-hex-svg {
-  width: 100%;
-  height: 100%;
-  animation: matrix-hex-rot calc(var(--anim-speed) * 2) linear infinite;
-  animation-play-state: var(--anim-state);
-}
-
-.matrix-laser-contour {
-  fill: none;
-  stroke: #FFFFFF;
-  stroke-width: 4;
-  stroke-dasharray: 60 200;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-  animation: matrix-laser-trace var(--anim-speed) ease-in-out infinite;
-  animation-play-state: var(--anim-state);
-}
-
-@keyframes matrix-laser-trace {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -260; }
-}
-
-@keyframes matrix-hex-rot {
-  to { transform: rotate(360deg); }
-}
-
-/* 05: MONO ATOM MICROLIGHT */
-.gl-spinner-micro {
-  width: calc(var(--anim-size) * 0.65);
-  height: calc(var(--anim-size) * 0.65);
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.micro-arc-track {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 3px solid var(--border-subtle);
-  border-top-color: #FFFFFF;
-  border-right-color: rgba(255, 255, 255, 0.4);
-  animation: micro-spin calc(var(--anim-speed) * 0.6) linear infinite;
-  animation-play-state: var(--anim-state);
-}
-
-@keyframes micro-spin {
-  to { transform: rotate(360deg); }
 }
 
 /* Modal Drawer */
