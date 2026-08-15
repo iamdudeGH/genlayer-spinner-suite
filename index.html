@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GenLayer Spinner Suite — Official Brand Loading Animations</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Background Cosmic Grid -->
+  <div class="space-canvas"></div>
+  <div class="cosmic-grid"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-badge">
+        <img src="/genlayer-mark.svg" class="brand-logo-img" alt="GenLayer Mark" />
+        <span class="brand-title">GenLayer <span>Spinner Suite</span></span>
+      </div>
+
+      <div class="header-links">
+        <a href="https://genlayer.com" target="_blank" class="btn-header">🌐 GenLayer.com</a>
+        <a href="https://github.com" target="_blank" class="btn-header">⭐ GitHub Repo</a>
+      </div>
+    </header>
+
+    <!-- Environment Switcher Bar -->
+    <div class="env-bar">
+      <button class="btn-env active" data-env="space" onclick="setEnvironment('space')">🌌 Cosmic Space</button>
+      <button class="btn-env" data-env="oled" onclick="setEnvironment('oled')">🌑 Pitch OLED</button>
+      <button class="btn-env" data-env="glass" onclick="setEnvironment('glass')">💎 Studio Glass</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pill">⚡ GenLayer Ecosystem Mission Submission</div>
+      <h1 class="hero-title">
+        The Iconic <span class="gradient-text">GenLayer Spinner</span>
+      </h1>
+      <p class="hero-subtitle">
+        A production-grade, 60fps GPU-accelerated loading animation suite crafted from official GenLayer brand geometry. Built for AI consensus states, GenVM execution, and dApp UX.
+      </p>
+
+      <!-- Quick Install Box -->
+      <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(139,92,246,0.3); border-radius: 10px; padding: 0.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
+          <span style="color: #94A3B8;">$ npm install</span>
+          <span style="color: #38BDF8; font-weight: 700;">genlayer-spinners</span>
+          <button onclick="navigator.clipboard.writeText('npm install genlayer-spinners'); showToast('📋 Command copied!');" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0.2rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem;">📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- Hero Showcase Card (with 3D Holographic Stage) -->
+      <div class="hero-showcase-card">
+        <!-- Stage -->
+        <div class="hero-stage" id="hero-stage" title="Move your mouse or tilt your phone to rotate in 3D perspective">
+          <!-- Injected via JS with 3D gyro -->
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-panel">
+          <div class="controls-title">
+            <span>⚙️</span> Real-time Customizer
+          </div>
+
+          <!-- Speed Slider -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span>Rotation & Morph Speed</span>
+              <span class="control-val" id="speed-val">2.2s</span>
+            </div>
+            <input type="range" class="slider-input" id="speed-slider" min="0.6" max="5.0" step="0.1" value="2.2" />
+          </div>
+
+          <!-- Size Slider -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span>Spinner Dimension</span>
+              <span class="control-val" id="size-val">140px</span>
+            </div>
+            <input type="range" class="slider-input" id="size-slider" min="60" max="220" step="5" value="140" />
+          </div>
+
+          <!-- Glow Intensity -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span>Glow & Bloom Intensity</span>
+              <span class="control-val" id="glow-val">100%</span>
+            </div>
+            <input type="range" class="slider-input" id="glow-slider" min="0" max="2.5" step="0.1" value="1.0" />
+          </div>
+
+          <!-- Palette Switcher -->
+          <div class="control-group">
+            <div class="control-label-row">
+              <span>Brand Color Theme</span>
+            </div>
+            <div class="palette-options">
+              <button class="palette-btn active" data-palette="cyberpunk" onclick="setPalette('cyberpunk')">Cyberpunk</button>
+              <button class="palette-btn" data-palette="emerald" onclick="setPalette('emerald')">Consensus</button>
+              <button class="palette-btn" data-palette="electric" onclick="setPalette('electric')">Electric</button>
+            </div>
+          </div>
+
+          <!-- 1-Click Code Button -->
+          <button class="btn-copy-code" onclick="openCodeModal()">
+            <span>📋</span> Export Spinner Code
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CINEMATIC CONSENSUS PLAYGROUND -->
+    <section class="consensus-playground-section">
+      <div class="cp-header">
+        <div class="hero-pill">🪐 Live Interactive Playground</div>
+        <h2 class="section-title">GenLayer Validator Consensus Arena</h2>
+        <p class="section-sub">Experience how the spinner visualizes real-time Optimistic Democracy consensus across 5 independent validator nodes.</p>
+      </div>
+
+      <div class="cp-matrix-grid">
+        <!-- Visual Arena -->
+        <div class="cp-visual-arena">
+          <svg class="cp-laser-svg">
+            <line x1="50%" y1="50px" x2="80%" y2="135px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="70%" y2="250px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="30%" y2="250px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="20%" y2="135px" class="cp-laser-line" />
+          </svg>
+
+          <!-- Central Spinner -->
+          <div class="gl-spinner-orbit" style="width: 100px; height: 100px; z-index: 10;">
+            <div class="orbit-ring orbit-ring-1"><div class="validator-node vn-1"></div></div>
+            <div class="orbit-ring orbit-ring-2"><div class="validator-node vn-2"></div><div class="validator-node vn-3"></div></div>
+            <img class="gl-orbit-center" src="/genlayer-mark.svg" alt="GenLayer" />
+          </div>
+
+          <!-- Validator Nodes -->
+          <div class="cp-validator-node cp-node-1 leader" id="cp-node-1">
+            <span>👑</span>
+            <span>Leader</span>
+          </div>
+          <div class="cp-validator-node cp-node-2" id="cp-node-2">
+            <span>⚡</span>
+            <span>Node #2</span>
+          </div>
+          <div class="cp-validator-node cp-node-3" id="cp-node-3">
+            <span>⚡</span>
+            <span>Node #3</span>
+          </div>
+          <div class="cp-validator-node cp-node-4" id="cp-node-4">
+            <span>⚡</span>
+            <span>Node #4</span>
+          </div>
+          <div class="cp-validator-node cp-node-5" id="cp-node-5">
+            <span>⚡</span>
+            <span>Node #5</span>
+          </div>
+        </div>
+
+        <!-- Terminal Logs -->
+        <div class="cp-terminal">
+          <div class="cp-term-header">
+            <span>CONSENSUS_LOGS: genvm_leader.log</span>
+            <span style="color:#10B981;">● RUNNING</span>
+          </div>
+          <div class="cp-log-stream" id="cp-log-stream">
+            <div class="log-line">Ready to simulate GenLayer Optimistic Democracy round.</div>
+            <div class="log-line">Click button below to initiate multi-validator verification.</div>
+          </div>
+          <button class="btn-trigger-consensus" id="btn-trigger-consensus" onclick="runConsensusSimulation()">
+            ⚡ Run Consensus Round Simulation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <div class="section-heading">
+        <h2 class="section-title">Spinner Animation Variants</h2>
+        <p class="section-sub">Choose from 5 distinct variations designed for different loading contexts across the GenLayer ecosystem.</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Crafted with official GenLayer Brand Vectors for the GenLayer Spinner Mission.</p>
+      <p style="margin-top: 0.25rem; font-size: 0.78rem;">60fps Hardware-Accelerated CSS • Zero External Heavy Dependencies</p>
+    </footer>
+  </div>
+
+  <!-- Code Export Modal -->
+  <div class="modal-backdrop hidden" id="code-modal" onclick="closeCodeModal(event)">
+    <div class="code-modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header-row">
+        <h3 id="modal-spinner-title" style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF;">
+          Export Spinner Code
+        </h3>
+        <button style="background:none;border:none;color:#94A3B8;font-size:1.5rem;cursor:pointer;" onclick="closeCodeModal()">&times;</button>
+      </div>
+
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab="css" onclick="switchCodeTab('css')">Pure CSS</button>
+        <button class="modal-tab-btn" data-tab="react" onclick="switchCodeTab('react')">React JSX</button>
+        <button class="modal-tab-btn" data-tab="html" onclick="switchCodeTab('html')">HTML / SVG</button>
+      </div>
+
+      <div class="code-block-wrap">
+        <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-bottom: 0.5rem;">
+          <button class="btn-card-use" onclick="downloadSvgFile()">📥 Download SVG</button>
+          <button class="btn-card-use" onclick="copyCurrentSnippet()">📋 Copy Code</button>
+        </div>
+        <pre class="code-content" id="modal-code-content"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-msg" id="toast-msg"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
