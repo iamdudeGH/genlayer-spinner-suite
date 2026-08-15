@@ -1,173 +1,159 @@
 import './style.css';
 import { SPINNERS } from './spinners.js';
-import { initCanvasBackground } from './canvas-bg.js';
-import { initDAppSimulators } from './simulators.js';
 
 // State
-let currentSpinnerId = 'quantum';
+let activeSpecimenId = 'prism';
+let isPlaying = true;
+let isWireframeActive = false;
 let currentTab = 'react';
-let customSpeed = 2.2;
-let customSize = 140;
-let customGlow = 1;
-let currentPalette = 'titanium';
-let viewportMode = 'normal';
-let isConsensusRunning = false;
+let animSpeed = 2.0;
+let animSize = 150;
 
 // DOM Ready
 window.addEventListener('DOMContentLoaded', () => {
-  initCanvasBackground();
-  initDAppSimulators();
-  renderHeroSpinner();
-  renderGallery();
+  renderCrucible();
+  renderSpecimenGrid();
   initControls();
-  init3DHologramTracking();
-  initConsensusPlayground();
+  initKeyboardShortcuts();
+  initTimeline();
 });
 
-// Render Hero in Technical Viewport
-function renderHeroSpinner() {
-  const stage = document.getElementById('hero-stage');
+// Render Crucible Stage
+function renderCrucible() {
+  const stage = document.getElementById('crucible-stage');
   if (!stage) return;
-  const s = SPINNERS[currentSpinnerId];
+  const s = SPINNERS[activeSpecimenId];
+
   stage.innerHTML = `
-    <div class="crosshair-tl"></div>
-    <div class="crosshair-tr"></div>
-    <div class="crosshair-bl"></div>
-    <div class="crosshair-br"></div>
+    <!-- Top HUD -->
+    <div class="stage-hud-top">
+      <div>SPECIMEN: <span>${s.name.toUpperCase()}</span></div>
+      <div>CORE: <span>GENLAYER_KINETIC_V1</span></div>
+      <div>GPU: <span>60.0 FPS</span></div>
+    </div>
+
+    <!-- Vector Vertices Layer (Wireframe) -->
+    <div class="vector-vertices-layer ${isWireframeActive ? 'active' : ''}" id="vertices-layer">
+      <div class="vertex-node" style="top: 25%; left: 45%;"></div>
+      <div class="vertex-node" style="top: 70%; left: 30%;"></div>
+      <div class="vertex-node" style="top: 75%; left: 44%;"></div>
+      <div class="vertex-node" style="top: 25%; left: 55%;"></div>
+      <div class="vertex-node" style="top: 70%; left: 70%;"></div>
+      <div class="vertex-node" style="top: 75%; left: 56%;"></div>
+      <div class="vertex-node" style="top: 50%; left: 50%;"></div>
+    </div>
+
+    <!-- Spinner Output -->
     ${s.render()}
-    <div class="viewport-telemetry-strip">
-      <div>SPEC: <span>${s.name.toUpperCase()}</span></div>
-      <div>CORE: <span>GENVM_V0.1</span></div>
-      <div>GPU: <span>60 FPS</span></div>
+
+    <!-- Timeline Scrubber Dock -->
+    <div class="timeline-dock">
+      <button class="btn-playback" id="btn-play-pause" onclick="window.togglePlayPause()">
+        ${isPlaying ? '⏸' : '▶'}
+      </button>
+      <div class="timeline-track-wrap">
+        <input type="range" class="timeline-slider" id="timeline-scrubber" min="0" max="100" value="50" />
+      </div>
+      <div class="timeline-timecode" id="timeline-timecode">00:01:12</div>
     </div>
   `;
 }
 
-// 3D Holographic Gyro Tracking
-function init3DHologramTracking() {
-  const stage = document.getElementById('hero-stage');
-  if (!stage) return;
-
-  // Desktop Mouse
-  stage.addEventListener('mousemove', (e) => {
-    const rect = stage.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    const tiltX = -(y / (rect.height / 2)) * 18;
-    const tiltY = (x / (rect.width / 2)) * 18;
-
-    stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
-    stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
-  });
-
-  stage.addEventListener('mouseleave', () => {
-    stage.style.setProperty('--tilt-x', '0deg');
-    stage.style.setProperty('--tilt-y', '0deg');
-  });
-
-  // Mobile DeviceOrientation
-  if (window.DeviceOrientationEvent) {
-    window.addEventListener('deviceorientation', (e) => {
-      if (e.beta !== null && e.gamma !== null) {
-        const tiltX = Math.min(Math.max(-e.beta * 0.35, -18), 18);
-        const tiltY = Math.min(Math.max(e.gamma * 0.35, -18), 18);
-        stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
-        stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
-      }
-    });
-  }
-}
-
-// Render Gallery with Balanced Toolbar Layout
-function renderGallery() {
-  const grid = document.getElementById('gallery-grid');
+// Render Specimen Collection
+function renderSpecimenGrid() {
+  const grid = document.getElementById('specimen-grid');
   if (!grid) return;
 
   grid.innerHTML = Object.values(SPINNERS).map(s => `
-    <div class="spinner-card" id="card-${s.id}">
-      <div class="card-spinner-box">
+    <div class="specimen-box" id="box-${s.id}">
+      <div class="specimen-meta">
+        <span class="specimen-index">${s.tag}</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-tertiary);">GPU OPTIMIZED</span>
+      </div>
+      <div class="specimen-name">${s.name}</div>
+      <div class="specimen-stage-mini">
         ${s.render()}
       </div>
-      <div class="card-info">
-        <div class="card-header-line">
-          <div class="card-name">${s.name}</div>
-          <span class="card-tag">${s.tag}</span>
-        </div>
-        <div class="card-btn-toolbar">
-          <button class="btn-card-action" onclick="window.selectHeroSpinner('${s.id}')">
-            <span>🔍</span> Inspect
-          </button>
-          <button class="btn-card-action" onclick="window.openCodeModal('${s.id}')">
-            <span>📋</span> Code
-          </button>
-          <button class="btn-card-action" onclick="window.downloadSvgFile('${s.id}')" title="Download standalone animated SVG">
-            <span>📥</span> SVG
-          </button>
-        </div>
+      <div class="specimen-desc">${s.description}</div>
+      <div class="specimen-actions">
+        <button class="btn-spec-action" onclick="window.selectSpecimen('${s.id}')">🔍 Inspect in Lab</button>
+        <button class="btn-spec-action" onclick="window.openCodeSheet('${s.id}')">📋 Code</button>
+        <button class="btn-spec-action" onclick="window.downloadSvg('${s.id}')">📥 SVG</button>
       </div>
     </div>
   `).join('');
 }
 
 // Global Actions
-window.selectHeroSpinner = function(id) {
+window.selectSpecimen = function(id) {
   if (SPINNERS[id]) {
-    currentSpinnerId = id;
-    renderHeroSpinner();
-    showToast(`⚡ Selected: ${SPINNERS[id].name}`);
-    window.scrollTo({ top: 140, behavior: 'smooth' });
+    activeSpecimenId = id;
+    renderCrucible();
+    showToast(`⚡ Loaded Specimen: ${SPINNERS[id].name}`);
+    window.scrollTo({ top: 220, behavior: 'smooth' });
   }
 };
 
-window.openCodeModal = function(id = currentSpinnerId) {
-  currentSpinnerId = id;
-  const modal = document.getElementById('code-modal');
-  const title = document.getElementById('modal-spinner-title');
-  if (title) title.textContent = `${SPINNERS[id].name} — Integration Code`;
-  updateCodeView();
+window.togglePlayPause = function() {
+  isPlaying = !isPlaying;
+  document.documentElement.style.setProperty('--anim-state', isPlaying ? 'running' : 'paused');
+  const btn = document.getElementById('btn-play-pause');
+  if (btn) btn.textContent = isPlaying ? '⏸' : '▶';
+  showToast(isPlaying ? '▶ Playback Resumed' : '⏸ Motion Paused');
+};
+
+window.toggleWireframe = function() {
+  isWireframeActive = !isWireframeActive;
+  const layer = document.getElementById('vertices-layer');
+  if (layer) layer.classList.toggle('active', isWireframeActive);
+  const btn = document.getElementById('btn-wireframe');
+  if (btn) btn.classList.toggle('active', isWireframeActive);
+  showToast(isWireframeActive ? '📐 Vector Vertices Overlay: ON' : 'Vector Vertices: OFF');
+};
+
+// Export Code Sheet
+window.openCodeSheet = function(id = activeSpecimenId) {
+  activeSpecimenId = id;
+  const modal = document.getElementById('code-modal-sheet');
+  const title = document.getElementById('sheet-specimen-title');
+  if (title) title.textContent = `${SPINNERS[id].name} — Integration Spec`;
+  updateCodeSheetContent();
   if (modal) modal.classList.remove('hidden');
 };
 
-window.closeCodeModal = function() {
-  const modal = document.getElementById('code-modal');
+window.closeCodeSheet = function() {
+  const modal = document.getElementById('code-modal-sheet');
   if (modal) modal.classList.add('hidden');
 };
 
-window.switchCodeTab = function(tab) {
+window.switchSheetTab = function(tab) {
   currentTab = tab;
-  document.querySelectorAll('.modal-tab-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.tab === tab);
+  document.querySelectorAll('.sheet-tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
   });
-  updateCodeView();
+  updateCodeSheetContent();
 };
 
-function updateCodeView() {
-  const codeEl = document.getElementById('modal-code-content');
-  if (!codeEl) return;
-  const s = SPINNERS[currentSpinnerId];
+function updateCodeSheetContent() {
+  const pre = document.getElementById('sheet-code-pre');
+  if (!pre) return;
+  const s = SPINNERS[activeSpecimenId];
 
-  if (currentTab === 'react') {
-    codeEl.textContent = s.react;
-  } else if (currentTab === 'vue') {
-    codeEl.textContent = s.vue;
-  } else if (currentTab === 'css') {
-    codeEl.textContent = s.css;
-  } else if (currentTab === 'html') {
-    codeEl.textContent = s.render().trim();
-  }
+  if (currentTab === 'react') pre.textContent = s.react;
+  else if (currentTab === 'vue') pre.textContent = s.vue;
+  else if (currentTab === 'css') pre.textContent = s.css;
+  else if (currentTab === 'html') pre.textContent = s.render().trim();
 }
 
-window.copyCurrentSnippet = function() {
-  const codeEl = document.getElementById('modal-code-content');
-  if (!codeEl) return;
-  navigator.clipboard.writeText(codeEl.textContent).then(() => {
-    showToast('📋 Code copied to clipboard!');
+window.copySnippet = function() {
+  const pre = document.getElementById('sheet-code-pre');
+  if (!pre) return;
+  navigator.clipboard.writeText(pre.textContent).then(() => {
+    showToast('📋 Component code copied to clipboard!');
   });
 };
 
-// Download Standalone Animated SVG
-window.downloadSvgFile = function(id = currentSpinnerId) {
+window.downloadSvg = function(id = activeSpecimenId) {
   const s = SPINNERS[id];
   if (!s || !s.standaloneSvg) return;
 
@@ -175,161 +161,71 @@ window.downloadSvgFile = function(id = currentSpinnerId) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `genlayer-spinner-${id}.svg`;
+  a.download = `genlayer-${id}-spinner.svg`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  showToast(`📥 Downloaded genlayer-spinner-${id}.svg!`);
+  showToast(`📥 Exported genlayer-${id}-spinner.svg!`);
 };
 
 // Controls
 function initControls() {
-  const speedSlider = document.getElementById('speed-slider');
-  const sizeSlider = document.getElementById('size-slider');
-  const glowSlider = document.getElementById('glow-slider');
+  const speedSlider = document.getElementById('speed-range');
+  const sizeSlider = document.getElementById('size-range');
 
   speedSlider?.addEventListener('input', (e) => {
-    customSpeed = parseFloat(e.target.value);
-    document.documentElement.style.setProperty('--spin-speed', `${customSpeed}s`);
-    document.getElementById('speed-val').textContent = `${customSpeed.toFixed(1)}s`;
+    animSpeed = parseFloat(e.target.value);
+    document.documentElement.style.setProperty('--anim-speed', `${animSpeed}s`);
+    document.getElementById('val-speed').textContent = `${animSpeed.toFixed(1)}s`;
   });
 
   sizeSlider?.addEventListener('input', (e) => {
-    customSize = parseInt(e.target.value, 10);
-    document.documentElement.style.setProperty('--spin-size', `${customSize}px`);
-    document.getElementById('size-val').textContent = `${customSize}px`;
-  });
-
-  glowSlider?.addEventListener('input', (e) => {
-    customGlow = parseFloat(e.target.value);
-    document.documentElement.style.setProperty('--glow-intensity', customGlow);
-    document.getElementById('glow-val').textContent = `${Math.round(customGlow * 100)}%`;
+    animSize = parseInt(e.target.value, 10);
+    document.documentElement.style.setProperty('--anim-size', `${animSize}px`);
+    document.getElementById('val-size').textContent = `${animSize}px`;
   });
 }
 
-// Environment Switcher
-window.setEnvironment = function(env) {
-  document.body.className = env === 'space' ? '' : `env-${env}`;
-  document.querySelectorAll('.env-chip').forEach(b => {
-    b.classList.toggle('active', b.dataset.env === env);
-  });
-  showToast(`🌐 Environment: ${env.toUpperCase()}`);
-};
-
-window.setPalette = function(paletteName) {
-  currentPalette = paletteName;
-  document.querySelectorAll('.seg-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.palette === paletteName);
-  });
-
-  if (paletteName === 'titanium') {
-    document.documentElement.style.setProperty('--cyan-plasma', '#00F0FF');
-    document.documentElement.style.setProperty('--solar-amber', '#FFB800');
-    document.documentElement.style.setProperty('--laser-violet', '#818CF8');
-  } else if (paletteName === 'emerald') {
-    document.documentElement.style.setProperty('--cyan-plasma', '#00FF9D');
-    document.documentElement.style.setProperty('--solar-amber', '#00F0FF');
-    document.documentElement.style.setProperty('--laser-violet', '#38BDF8');
-  } else if (paletteName === 'solar') {
-    document.documentElement.style.setProperty('--cyan-plasma', '#FFB800');
-    document.documentElement.style.setProperty('--solar-amber', '#FF5500');
-    document.documentElement.style.setProperty('--laser-violet', '#FFB800');
-  }
-  showToast(`🎨 Preset: ${paletteName.toUpperCase()}`);
-};
-
-// ==========================================================================
-// CINEMATIC CONSENSUS ARENA SIMULATION
-// ==========================================================================
-function initConsensusPlayground() {
-  const btn = document.getElementById('btn-trigger-consensus');
-  if (btn) {
-    btn.addEventListener('click', runConsensusSimulation);
-  }
-}
-
-window.runConsensusSimulation = function() {
-  if (isConsensusRunning) return;
-  isConsensusRunning = true;
-
-  const btn = document.getElementById('btn-trigger-consensus');
-  const logStream = document.getElementById('cp-log-stream');
-  if (btn) {
-    btn.disabled = true;
-    btn.textContent = '⏳ DELIBERATING EQUIVALENCE PRINCIPLE...';
-  }
-  if (logStream) logStream.innerHTML = '';
-
-  // Reset Node classes
-  for (let i = 1; i <= 5; i++) {
-    const node = document.getElementById(`cp-node-${i}`);
-    if (node) node.className = `cp-validator-node cp-node-${i} ${i === 1 ? 'leader' : ''}`;
-  }
-
-  // Reset Lasers
-  document.querySelectorAll('.cp-laser-line').forEach(l => l.classList.remove('active'));
-
-  function addLog(msg, type = '') {
-    if (!logStream) return;
-    const line = document.createElement('div');
-    line.className = `log-line ${type}`;
-    line.textContent = `[${new Date().toISOString().slice(11, 19)}] ${msg}`;
-    logStream.appendChild(line);
-    logStream.scrollTop = logStream.scrollHeight;
-  }
-
-  addLog('🚀 Leader Validator (Node #1) proposing state transaction...', 'cyan');
-
-  setTimeout(() => {
-    addLog('⚡ Broadcasted calldata payload to 4 independent validator nodes...', 'amber');
-    document.querySelectorAll('.cp-laser-line').forEach(l => l.classList.add('active'));
-  }, 1000);
-
-  setTimeout(() => {
-    addLog('🔍 Node #2: Comparative Equivalence Principle PASSED (99.8%)', 'cyan');
-    const n2 = document.getElementById('cp-node-2');
-    if (n2) n2.classList.add('agree');
-  }, 2200);
-
-  setTimeout(() => {
-    addLog('🔍 Node #3: Comparative Equivalence Principle PASSED (99.5%)', 'cyan');
-    const n3 = document.getElementById('cp-node-3');
-    if (n3) n3.classList.add('agree');
-  }, 3400);
-
-  setTimeout(() => {
-    addLog('🔍 Node #4: Comparative Equivalence Principle PASSED (100.0%)', 'cyan');
-    const n4 = document.getElementById('cp-node-4');
-    if (n4) n4.classList.add('agree');
-  }, 4500);
-
-  setTimeout(() => {
-    addLog('🔍 Node #5: Comparative Equivalence Principle PASSED (99.7%)', 'cyan');
-    const n5 = document.getElementById('cp-node-5');
-    if (n5) n5.classList.add('agree');
-  }, 5600);
-
-  setTimeout(() => {
-    addLog('🎉 OPTIMISTIC DEMOCRACY FINALIZED: 5/5 Consensus Reached!', 'green');
-    addLog('✅ State root committed to GenVM blockchain.', 'green');
-    const n1 = document.getElementById('cp-node-1');
-    if (n1) n1.classList.add('agree');
-
-    showToast('🎉 Consensus Round Successfully Finalized!');
-    if (btn) {
-      btn.disabled = false;
-      btn.textContent = '⚡ RUN CONSENSUS ROUND SIMULATION';
+// Timeline & Keyboard Shortcuts
+function initTimeline() {
+  let timecodeVal = 0;
+  setInterval(() => {
+    if (!isPlaying) return;
+    timecodeVal = (timecodeVal + 1) % 240;
+    const scrubber = document.getElementById('timeline-scrubber');
+    const tc = document.getElementById('timeline-timecode');
+    if (scrubber) scrubber.value = (timecodeVal / 240) * 100;
+    if (tc) {
+      const s = Math.floor(timecodeVal / 30);
+      const f = timecodeVal % 30;
+      tc.textContent = `00:0${s}:${f < 10 ? '0' : ''}${f}`;
     }
-    isConsensusRunning = false;
-  }, 6800);
-};
+  }, 33);
+}
+
+function initKeyboardShortcuts() {
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (e.code === 'Space') {
+      e.preventDefault();
+      window.togglePlayPause();
+    } else if (e.key.toLowerCase() === 'w') {
+      window.toggleWireframe();
+    } else if (['1', '2', '3', '4', '5'].includes(e.key)) {
+      const keys = Object.keys(SPINNERS);
+      const idx = parseInt(e.key, 10) - 1;
+      if (keys[idx]) window.selectSpecimen(keys[idx]);
+    }
+  });
+}
 
 // Toast
 function showToast(msg) {
-  const toast = document.getElementById('toast-msg');
+  const toast = document.getElementById('toast-banner');
   if (!toast) return;
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
+  setTimeout(() => toast.classList.remove('show'), 2500);
 }

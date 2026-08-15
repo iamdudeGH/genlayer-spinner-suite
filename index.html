@@ -4,292 +4,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GenLayer Vector Spinner Studio — Official Brand Loading Animations</title>
+  <title>GenLayer Kinetic Motion Specimen Lab — Official Vector Loading System</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@500;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
     rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Interactive Canvas Particle & Filament Mesh -->
-  <canvas id="bg-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 0;"></canvas>
-  <div class="studio-matrix-grid"></div>
+  <!-- Blueprint Precision Background Grid -->
+  <div class="blueprint-grid"></div>
 
-  <div class="container">
-    <!-- Studio Topbar -->
-    <header class="studio-topbar">
-      <div class="studio-brand-group">
-        <img src="/genlayer-mark.svg" class="studio-brand-mark" alt="GenLayer Mark" />
-        <div class="studio-brand-title">GenLayer <span>Vector Studio</span></div>
+  <div class="app-wrapper">
+    <!-- Studio Header -->
+    <header class="studio-nav">
+      <div class="brand-monogram">
+        <svg viewBox="0 0 97.76 91.93" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF" />
+          <polygon points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FF9E00" />
+          <polygon points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">GENLAYER KINETIC LAB</span>
+          <span class="brand-sub">VECTOR MOTION SPECIMENS // 2026</span>
+        </div>
       </div>
 
-      <div class="studio-telemetry-badge">
-        <div class="telemetry-dot"></div>
-        <span>60 FPS GPU • GENVM V0.1</span>
+      <div class="nav-actions">
+        <div class="nav-pill">● 60 FPS GPU ENGINE</div>
       </div>
     </header>
 
-    <!-- Environment Switcher -->
-    <div class="env-selector-bar">
-      <button class="env-chip active" data-env="space" onclick="setEnvironment('space')">🌌 COSMIC TITANIUM</button>
-      <button class="env-chip" data-env="oled" onclick="setEnvironment('oled')">🌑 PITCH OLED</button>
-      <button class="env-chip" data-env="glass" onclick="setEnvironment('glass')">💎 OBSIDIAN GLASS</button>
-    </div>
-
-    <!-- Hero Studio Deck Section -->
-    <section class="hero-deck-section">
-      <div class="hero-deck-header">
-        <div class="studio-eyebrow">⚡ GENLAYER ECOSYSTEM MISSION SUBMISSION</div>
-        <h1 class="studio-deck-title">
-          Intelligent Consensus <span class="accent-cyan">Loading System</span>
+    <!-- Editorial Hero Section -->
+    <section class="hero-editorial">
+      <div>
+        <h1 class="hero-main-title">
+          Intelligent <span>Vector</span> Kinetics
         </h1>
-        <p class="studio-deck-subtitle">
-          An industrial-grade, 60fps GPU-accelerated vector loading suite engineered from official GenLayer geometry. Designed for AI consensus states and GenVM dApp execution.
+      </div>
+      <div>
+        <p class="hero-editorial-desc">
+          An architectural vector animation suite engineered from first-principles GenLayer brand geometry. Built for AI consensus states, transaction finality, and high-frequency dApp execution.
         </p>
-      </div>
-
-      <!-- Quick Install Box -->
-      <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-        <div style="background: rgba(14, 16, 23, 0.9); border: 1px solid var(--border-hairline-bright); border-radius: 8px; padding: 0.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;">
-          <span style="color: var(--text-muted);">$ npm install</span>
-          <span style="color: var(--cyan-plasma); font-weight: 700;">genlayer-spinners</span>
-          <button onclick="navigator.clipboard.writeText('npm install genlayer-spinners'); showToast('📋 Command copied!');" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-hairline); color: var(--titanium-white); padding: 0.25rem 0.65rem; border-radius: 4px; cursor: pointer; font-size: 0.74rem;">📋 Copy</button>
+        <div class="keyboard-hints">
+          <div><span class="key-badge">SPACE</span> Play/Pause</div>
+          <div><span class="key-badge">W</span> Wireframe Overlay</div>
+          <div><span class="key-badge">1-5</span> Quick Specimen</div>
         </div>
       </div>
+    </section>
 
-      <!-- Workstation Split Deck -->
-      <div class="studio-workstation">
-        <!-- Left: 3D Holographic Viewport -->
-        <div class="viewport-deck" id="hero-stage" title="Move your mouse or tilt device for 3D gyro perspective">
-          <!-- Injected via main.js -->
+    <!-- Interactive Crucible Section (Hero Lab Stage) -->
+    <section class="crucible-section">
+      <div class="crucible-card">
+        <!-- Left: Interactive Stage -->
+        <div class="crucible-stage" id="crucible-stage">
+          <!-- Rendered via main.js -->
         </div>
 
-        <!-- Right: Studio Precision Control Console -->
-        <div class="control-console">
-          <div class="console-header">
-            <div class="console-title">
-              <span>🎛️</span> Parameter Deck
-            </div>
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim);">
-              REAL-TIME SYNC
-            </div>
+        <!-- Right: Inspector Deck -->
+        <div class="inspector-deck">
+          <div class="inspector-header">
+            <span>🎛️ Motion Parameters</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--text-tertiary);">GPU PIPELINE</span>
           </div>
 
-          <!-- Speed Slider -->
-          <div class="console-group">
-            <div class="console-label-row">
-              <span>Rotation & Morph Velocity</span>
-              <span class="console-val-badge" id="speed-val">2.2s</span>
+          <!-- Speed -->
+          <div class="control-field">
+            <div class="control-header-row">
+              <span>Velocity (Cycle Duration)</span>
+              <span class="val" id="val-speed">2.0s</span>
             </div>
-            <input type="range" class="studio-slider" id="speed-slider" min="0.6" max="5.0" step="0.1" value="2.2" />
+            <input type="range" class="control-range" id="speed-range" min="0.6" max="4.0" step="0.1" value="2.0" />
           </div>
 
-          <!-- Size Slider -->
-          <div class="console-group">
-            <div class="console-label-row">
+          <!-- Size -->
+          <div class="control-field">
+            <div class="control-header-row">
               <span>Vector Scale Dimension</span>
-              <span class="console-val-badge" id="size-val">140px</span>
+              <span class="val" id="val-size">150px</span>
             </div>
-            <input type="range" class="studio-slider" id="size-slider" min="60" max="220" step="5" value="140" />
+            <input type="range" class="control-range" id="size-range" min="60" max="220" step="5" value="150" />
           </div>
 
-          <!-- Glow Intensity -->
-          <div class="console-group">
-            <div class="console-label-row">
-              <span>Bloom / Specular Luminescence</span>
-              <span class="console-val-badge" id="glow-val">100%</span>
+          <!-- Viewport Mode Toggles -->
+          <div class="control-field">
+            <div class="control-header-row">
+              <span>Diagnostic Overlays</span>
             </div>
-            <input type="range" class="studio-slider" id="glow-slider" min="0" max="2.5" step="0.1" value="1.0" />
-          </div>
-
-          <!-- Theme Palette Segmented Bar -->
-          <div class="console-group">
-            <div class="console-label-row">
-              <span>Chromatic Theme Preset</span>
-            </div>
-            <div class="palette-segmented-bar">
-              <button class="seg-btn active" data-palette="titanium" onclick="setPalette('titanium')">TITANIUM</button>
-              <button class="seg-btn" data-palette="emerald" onclick="setPalette('emerald')">EMERALD</button>
-              <button class="seg-btn" data-palette="solar" onclick="setPalette('solar')">SOLAR GOLD</button>
+            <div class="toggle-grid">
+              <button class="btn-toggle-hud" id="btn-wireframe" onclick="toggleWireframe()">📐 Wireframe (W)</button>
+              <button class="btn-toggle-hud" onclick="togglePlayPause()">⏸ Pause (Space)</button>
             </div>
           </div>
 
-          <!-- 1-Click Code Button -->
-          <button class="btn-studio-export" onclick="openCodeModal()">
-            <span>📋</span> EXPORT INTEGRATION CODE
+          <!-- Quick NPM Install Box -->
+          <div style="background:#050608; border:1px solid var(--panel-border); border-radius:6px; padding:0.65rem 0.85rem; font-family:'JetBrains Mono',monospace; font-size:0.75rem; display:flex; justify-content:space-between; align-items:center;">
+            <span style="color:var(--text-secondary);">$ npm i genlayer-spinners</span>
+            <button onclick="navigator.clipboard.writeText('npm i genlayer-spinners'); showToast('📋 Copied NPM command!');" style="background:none; border:none; color:var(--accent-laser); cursor:pointer; font-weight:700;">Copy</button>
+          </div>
+
+          <!-- Export Trigger -->
+          <button class="btn-export-trigger" onclick="openCodeSheet()">
+            Export Integration Code ↗
           </button>
         </div>
       </div>
     </section>
 
-    <!-- REAL-WORLD DAPP STAGING DECK -->
-    <section class="gallery-section" style="margin-bottom: 3.5rem;">
-      <div class="section-heading">
-        <div class="studio-eyebrow">📱 REAL-WORLD DAPP INTEGRATION</div>
-        <h2 class="section-title">Live Loading State Previews</h2>
-        <p class="section-sub">Interactive demonstrations showing how the spinners behave in live dApp transactions, AI queries, and deployments.</p>
+    <!-- Editorial Specimen Collection -->
+    <section class="specimens-section">
+      <div class="specimen-header-strip">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--accent-laser); font-weight:700; margin-bottom:0.25rem;">CURATED MOTION COLLECTION</div>
+          <h2 class="specimen-title">Vector Motion Specimens</h2>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--text-secondary);">
+          5 BESPOKE KINETIC ENGINES
+        </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        <!-- Sim 1: DeFi Swap -->
-        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
-          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
-            <span>⚡ DeFi Liquidity Swap</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--cyan-plasma);">GEN/USDC</span>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Simulate high-frequency transactional button loading with the Minimalist Micro-Loader.</p>
-          <button id="btn-sim-swap" style="background: var(--cyan-plasma); color: #000000; border: none; border-radius: 8px; padding: 0.85rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.85rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all 0.2s;">
-            ⚡ Swap 10 GEN for 42 USDC
-          </button>
-        </div>
-
-        <!-- Sim 2: AI Oracle -->
-        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
-          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
-            <span>🧠 AI Web Oracle Query</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--solar-amber);">MULTI-NODE</span>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Fetch live S&P 500 financial web sentiment with comparative Equivalence checking.</p>
-          <div id="oracle-result-box" style="min-height: 48px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-hairline); border-radius: 6px; padding: 0.6rem; display:flex; align-items:center;">
-            <span style="color:var(--text-dim); font-size:0.78rem; font-family:'JetBrains Mono',monospace;">Waiting for trigger...</span>
-          </div>
-          <button id="btn-sim-oracle" style="background: var(--titanium-glass); border: 1px solid var(--solar-amber); color: var(--solar-amber); border-radius: 8px; padding: 0.75rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.82rem; cursor:pointer;">
-            🔍 Fetch Live Oracle Data
-          </button>
-        </div>
-
-        <!-- Sim 3: GenVM Deployer -->
-        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
-          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
-            <span>📜 Python Contract Deployer</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#00FF9D;">GENVM</span>
-          </div>
-          <p style="font-size: 0.8rem; color: var(--text-muted);">Compile and broadcast intelligent Python contract bytecode to GenLayer Studionet.</p>
-          <div id="deploy-term-logs" style="min-height: 48px; background: #050608; border: 1px solid var(--border-hairline); border-radius: 6px; padding: 0.6rem; font-family:'JetBrains Mono',monospace; font-size:0.72rem; display:flex; flex-direction:column; gap:0.2rem;">
-            <span style="color:var(--text-dim);">Ready to deploy.</span>
-          </div>
-          <button id="btn-sim-deploy" style="background: var(--titanium-glass); border: 1px solid #00FF9D; color: #00FF9D; border-radius: 8px; padding: 0.75rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.82rem; cursor:pointer;">
-            🚀 Deploy Python Contract to GenVM
-          </button>
-        </div>
+      <div class="specimen-grid" id="specimen-grid">
+        <!-- Rendered dynamically via main.js -->
       </div>
     </section>
 
-    <!-- CINEMATIC CONSENSUS ARENA SECTION -->
-    <section class="consensus-arena-section">
-      <div class="arena-header">
-        <div class="studio-eyebrow">🪐 LIVE SYSTEM VERIFICATION</div>
-        <h2 class="section-title">GenLayer Validator Consensus Arena</h2>
-        <p class="section-sub">Experience how the spinner coordinates real-time Optimistic Democracy consensus across 5 independent validator nodes.</p>
-      </div>
-
-      <div class="arena-grid">
-        <!-- Visual Box -->
-        <div class="arena-visual-box">
-          <svg class="cp-laser-svg">
-            <line x1="50%" y1="50px" x2="80%" y2="140px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="70%" y2="260px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="30%" y2="260px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="20%" y2="140px" class="cp-laser-line" />
-          </svg>
-
-          <!-- Central Spinner -->
-          <div class="gl-spinner-orbit" style="width: 100px; height: 100px; z-index: 10;">
-            <div class="orbit-ring orbit-ring-1"><div class="validator-node vn-1"></div></div>
-            <div class="orbit-ring orbit-ring-2"><div class="validator-node vn-2"></div><div class="validator-node vn-3"></div></div>
-            <img class="gl-orbit-center" src="/genlayer-mark.svg" alt="GenLayer" />
-          </div>
-
-          <!-- Validator Nodes -->
-          <div class="cp-validator-node cp-node-1 leader" id="cp-node-1">
-            <span style="font-size: 0.85rem;">👑</span>
-            <span>LEADER</span>
-          </div>
-          <div class="cp-validator-node cp-node-2" id="cp-node-2">
-            <span style="font-size: 0.85rem;">⚡</span>
-            <span>NODE #2</span>
-          </div>
-          <div class="cp-validator-node cp-node-3" id="cp-node-3">
-            <span style="font-size: 0.85rem;">⚡</span>
-            <span>NODE #3</span>
-          </div>
-          <div class="cp-validator-node cp-node-4" id="cp-node-4">
-            <span style="font-size: 0.85rem;">⚡</span>
-            <span>NODE #4</span>
-          </div>
-          <div class="cp-validator-node cp-node-5" id="cp-node-5">
-            <span style="font-size: 0.85rem;">⚡</span>
-            <span>NODE #5</span>
-          </div>
-        </div>
-
-        <!-- Terminal Box -->
-        <div class="arena-terminal">
-          <div class="terminal-header">
-            <span>CONSENSUS_LOGS: genvm_leader.log</span>
-            <span style="color: var(--acid-emerald);">● RUNNING</span>
-          </div>
-          <div class="terminal-logs" id="cp-log-stream">
-            <div class="log-line">Ready to simulate GenLayer Optimistic Democracy round.</div>
-            <div class="log-line">Click button below to initiate multi-validator equivalence checks.</div>
-          </div>
-          <button class="btn-trigger-consensus" id="btn-trigger-consensus" onclick="runConsensusSimulation()">
-            ⚡ RUN CONSENSUS ROUND SIMULATION
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENTO GALLERY SECTION -->
-    <section class="gallery-section">
-      <div class="section-heading">
-        <h2 class="section-title">Spinner Animation Variants</h2>
-        <p class="section-sub">Engineered variations optimized for different loading and execution states across the GenLayer ecosystem.</p>
-      </div>
-
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- Rendered dynamically -->
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-      <p>Crafted with official GenLayer Brand Vectors for the GenLayer Spinner Mission.</p>
-      <p style="margin-top: 0.35rem; font-size: 0.72rem; color: var(--text-dim);">60 FPS GPU-Accelerated CSS • Zero External Heavy Dependencies</p>
+    <!-- Studio Footer -->
+    <footer class="studio-footer">
+      <div>GENLAYER KINETIC SPECIMEN SYSTEM // DESIGNED FROM OFFICIAL BRAND GEOMETRY</div>
+      <div>60 FPS • ZERO DEPENDENCIES • PURE CSS / SVG</div>
     </footer>
   </div>
 
-  <!-- Code Export Modal -->
-  <div class="modal-backdrop hidden" id="code-modal" onclick="closeCodeModal(event)">
-    <div class="code-modal-card" onclick="event.stopPropagation()">
-      <div class="modal-header-row">
-        <h3 id="modal-spinner-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--titanium-white);">
-          Export Integration Code
-        </h3>
-        <button style="background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;" onclick="closeCodeModal()">&times;</button>
+  <!-- Code Export Modal Drawer -->
+  <div class="modal-sheet-backdrop hidden" id="code-modal-sheet" onclick="closeCodeSheet(event)">
+    <div class="modal-sheet-card" onclick="event.stopPropagation()">
+      <div class="sheet-header-row">
+        <div class="sheet-title" id="sheet-specimen-title">Specimen Integration</div>
+        <button style="background:none; border:none; color:var(--text-secondary); font-size:1.4rem; cursor:pointer;" onclick="closeCodeSheet()">&times;</button>
       </div>
 
-      <div class="modal-tabs">
-        <button class="modal-tab-btn active" data-tab="react" onclick="switchCodeTab('react')">React JSX</button>
-        <button class="modal-tab-btn" data-tab="vue" onclick="switchCodeTab('vue')">Vue 3</button>
-        <button class="modal-tab-btn" data-tab="css" onclick="switchCodeTab('css')">Pure CSS</button>
-        <button class="modal-tab-btn" data-tab="html" onclick="switchCodeTab('html')">HTML / SVG</button>
+      <div class="sheet-tabs">
+        <button class="sheet-tab-btn active" data-tab="react" onclick="switchSheetTab('react')">React JSX</button>
+        <button class="sheet-tab-btn" data-tab="vue" onclick="switchSheetTab('vue')">Vue 3</button>
+        <button class="sheet-tab-btn" data-tab="css" onclick="switchSheetTab('css')">Pure CSS</button>
+        <button class="sheet-tab-btn" data-tab="html" onclick="switchSheetTab('html')">SVG / HTML</button>
       </div>
 
-      <div class="code-block-wrap">
-        <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-bottom: 0.5rem;">
-          <button class="btn-card-action" onclick="downloadSvgFile()">📥 Download SVG</button>
-          <button class="btn-card-action" onclick="copyCurrentSnippet()">📋 Copy Code</button>
+      <div class="code-view-container">
+        <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-bottom:0.75rem;">
+          <button class="btn-spec-action" onclick="downloadSvg()">📥 Download SVG</button>
+          <button class="btn-spec-action" onclick="copySnippet()">📋 Copy Code</button>
         </div>
-        <pre class="code-content" id="modal-code-content"></pre>
+        <pre class="code-pre-element" id="sheet-code-pre"></pre>
       </div>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div class="toast-msg" id="toast-msg"></div>
+  <!-- Toast -->
+  <div class="toast-banner" id="toast-banner"></div>
 
   <script type="module" src="/src/main.js"></script>
 </body>

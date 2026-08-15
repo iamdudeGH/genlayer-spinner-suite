@@ -1,88 +1,83 @@
 // ==========================================================================
-// GENLAYER SPINNER DEFINITIONS & MULTI-FRAMEWORK EXPORT TEMPLATES
+// 5 BESPOKE KINETIC VECTOR MOTIONS & EXPORT DEFINITIONS
 // ==========================================================================
 
 export const SPINNERS = {
-  quantum: {
-    id: 'quantum',
-    name: 'Quantum Core (Signature)',
-    tag: 'Flagship Mark',
-    description: 'Official dual-wing GenLayer vector mark with pulsing diamond crystal core in 3D floating perspective.',
+  prism: {
+    id: 'prism',
+    name: 'Prism Singularity',
+    tag: '01 / REFRACTION',
+    description: 'Dual-wing official GenLayer mark undergoing mathematical geometric expansion and chromatic laser diffraction.',
     render: () => `
-      <div class="gl-spinner-quantum">
-        <svg class="gl-quantum-svg" viewBox="0 0 97.76 91.93" xmlns="http://www.w3.org/2000/svg">
+      <div class="gl-spinner-prism">
+        <svg viewBox="0 0 97.76 91.93" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; overflow:visible;">
           <defs>
-            <linearGradient id="gl-qg-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <linearGradient id="prism-g1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#00F0FF" />
-              <stop offset="100%" stop-color="#818CF8" />
+              <stop offset="100%" stop-color="#D4FF00" />
             </linearGradient>
-            <linearGradient id="gl-qg-2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#818CF8" />
-              <stop offset="100%" stop-color="#FFB800" />
+            <linearGradient id="prism-g2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#D4FF00" />
+              <stop offset="100%" stop-color="#FF9E00" />
             </linearGradient>
           </defs>
-          <polygon class="gl-wing-left" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="url(#gl-qg-1)"/>
-          <polygon class="gl-wing-right" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="url(#gl-qg-2)"/>
-          <polygon class="gl-core-diamond" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
+          <polygon class="gl-prism-wing-l" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="url(#prism-g1)"/>
+          <polygon class="gl-prism-wing-r" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="url(#prism-g2)"/>
+          <polygon class="gl-prism-core" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
         </svg>
       </div>
     `,
-    css: `/* GenLayer Quantum Core Spinner */
-.gl-spinner-quantum {
-  width: 120px;
-  height: 110px;
-  animation: gl-floating 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 16px rgba(0, 240, 255, 0.6));
+    css: `/* 01: Prism Singularity */
+.gl-spinner-prism {
+  width: 130px;
+  height: 120px;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
 }
-.gl-wing-left {
+.gl-prism-wing-l {
   transform-origin: 44.26px 45px;
-  animation: gl-wing-morph-left 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: prism-morph-l 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
-.gl-wing-right {
+.gl-prism-wing-r {
   transform-origin: 53.5px 45px;
-  animation: gl-wing-morph-right 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: prism-morph-r 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
-.gl-core-diamond {
+.gl-prism-core {
   transform-origin: 48.64px 55.7px;
-  animation: gl-core-pulse 1.1s ease-in-out infinite;
+  animation: prism-core-strobe 1.1s ease-in-out infinite;
 }
-@keyframes gl-wing-morph-left {
+@keyframes prism-morph-l {
   0%, 100% { transform: rotate(0deg) scale(1); fill: #00F0FF; }
-  35% { transform: rotate(-18deg) scale(1.08) translate(-6px, -4px); fill: #818CF8; }
-  70% { transform: rotate(10deg) scale(0.92) translate(3px, 2px); fill: #FFB800; }
+  35% { transform: rotate(-22deg) scale(1.12) translate(-8px, -5px); fill: #D4FF00; }
+  70% { transform: rotate(12deg) scale(0.92) translate(4px, 3px); fill: #FF9E00; }
 }
-@keyframes gl-wing-morph-right {
-  0%, 100% { transform: rotate(0deg) scale(1); fill: #FFB800; }
-  35% { transform: rotate(18deg) scale(1.08) translate(6px, -4px); fill: #818CF8; }
-  70% { transform: rotate(-10deg) scale(0.92) translate(-3px, 2px); fill: #00F0FF; }
+@keyframes prism-morph-r {
+  0%, 100% { transform: rotate(0deg) scale(1); fill: #FF9E00; }
+  35% { transform: rotate(22deg) scale(1.12) translate(8px, -5px); fill: #D4FF00; }
+  70% { transform: rotate(-12deg) scale(0.92) translate(-4px, 3px); fill: #00F0FF; }
 }
-@keyframes gl-core-pulse {
+@keyframes prism-core-strobe {
   0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px #FFFFFF); }
-  50% { transform: scale(1.35); filter: drop-shadow(0 0 20px #00F0FF); }
-}
-@keyframes gl-floating {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 24px #00F0FF); }
 }`,
     react: `import React from 'react';
 
-export function GenLayerQuantumSpinner({ size = 120 }) {
+export function GenLayerPrismSpinner({ size = 120 }) {
   return (
-    <div style={{ width: size, height: size * 0.94 }} className="gl-spinner-quantum">
+    <div style={{ width: size, height: size * 0.94 }} className="gl-spinner-prism">
       <svg viewBox="0 0 97.76 91.93" xmlns="http://www.w3.org/2000/svg">
-        <polygon className="gl-wing-left" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
-        <polygon className="gl-wing-right" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FFB800"/>
-        <polygon className="gl-core-diamond" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
+        <polygon className="gl-prism-wing-l" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
+        <polygon className="gl-prism-wing-r" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FF9E00"/>
+        <polygon className="gl-prism-core" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
       </svg>
     </div>
   );
 }`,
     vue: `<template>
-  <div :style="{ width: size + 'px', height: (size * 0.94) + 'px' }" class="gl-spinner-quantum">
+  <div class="gl-spinner-prism" :style="{ width: size + 'px', height: (size * 0.94) + 'px' }">
     <svg viewBox="0 0 97.76 91.93" xmlns="http://www.w3.org/2000/svg">
-      <polygon class="gl-wing-left" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
-      <polygon class="gl-wing-right" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FFB800"/>
-      <polygon class="gl-core-diamond" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
+      <polygon class="gl-prism-wing-l" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
+      <polygon class="gl-prism-wing-r" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FF9E00"/>
+      <polygon class="gl-prism-core" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
     </svg>
   </div>
 </template>
@@ -93,91 +88,80 @@ defineProps({ size: { type: Number, default: 120 } });
     standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97.76 91.93" width="200" height="190">
   <defs>
     <style>
-      .w-left { transform-origin: 44.26px 45px; animation: w-l 2.2s ease-in-out infinite; }
-      .w-right { transform-origin: 53.5px 45px; animation: w-r 2.2s ease-in-out infinite; }
-      .c-diam { transform-origin: 48.64px 55.7px; animation: c-p 1.1s ease-in-out infinite; }
-      @keyframes w-l { 0%,100%{transform:rotate(0deg);fill:#00F0FF;} 35%{transform:rotate(-18deg) scale(1.08);fill:#818CF8;} 70%{transform:rotate(10deg);fill:#FFB800;} }
-      @keyframes w-r { 0%,100%{transform:rotate(0deg);fill:#FFB800;} 35%{transform:rotate(18deg) scale(1.08);fill:#818CF8;} 70%{transform:rotate(-10deg);fill:#00F0FF;} }
-      @keyframes c-p { 0%,100%{transform:scale(1);} 50%{transform:scale(1.35);} }
+      .w-l { transform-origin: 44.26px 45px; animation: wl 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+      .w-r { transform-origin: 53.5px 45px; animation: wr 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+      .c-s { transform-origin: 48.64px 55.7px; animation: cs 1.1s ease-in-out infinite; }
+      @keyframes wl { 0%,100%{transform:rotate(0deg);fill:#00F0FF;} 35%{transform:rotate(-22deg) scale(1.12);fill:#D4FF00;} 70%{transform:rotate(12deg) scale(0.92);fill:#FF9E00;} }
+      @keyframes wr { 0%,100%{transform:rotate(0deg);fill:#FF9E00;} 35%{transform:rotate(22deg) scale(1.12);fill:#D4FF00;} 70%{transform:rotate(-12deg) scale(0.92);fill:#00F0FF;} }
+      @keyframes cs { 0%,100%{transform:scale(1);} 50%{transform:scale(1.4);} }
     </style>
   </defs>
-  <polygon class="w-left" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
-  <polygon class="w-right" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FFB800"/>
-  <polygon class="c-diam" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
+  <polygon class="w-l" points="44.26 32.35 27.72 67.12 43.29 74.9 0 91.93 44.26 0 44.26 32.35" fill="#00F0FF"/>
+  <polygon class="w-r" points="53.5 32.35 70.04 67.12 54.47 74.9 97.76 91.93 53.5 0 53.5 32.35" fill="#FF9E00"/>
+  <polygon class="c-s" points="48.64 43.78 58.33 62.94 48.64 67.69 39.47 62.92 48.64 43.78" fill="#FFFFFF"/>
 </svg>`
   },
 
-  orbit: {
-    id: 'orbit',
-    name: 'Consensus Orbit Matrix',
-    tag: 'Validator Nodes',
-    description: 'Dual counter-rotating orbital rings carrying validator node beacons around the central GenLayer core.',
+  chrono: {
+    id: 'chrono',
+    name: 'Chrono Gyroscope',
+    tag: '02 / 3D GIMBAL',
+    description: 'Multi-axis 3D spatial gyroscope rings gimbal-rotating continuously around the levitating GenLayer diamond.',
     render: () => `
-      <div class="gl-spinner-orbit">
-        <div class="orbit-ring orbit-ring-1">
-          <div class="validator-node vn-1"></div>
-        </div>
-        <div class="orbit-ring orbit-ring-2">
-          <div class="validator-node vn-2"></div>
-          <div class="validator-node vn-3"></div>
-        </div>
-        <img class="gl-orbit-center" src="/genlayer-mark.svg" alt="GenLayer Core" />
+      <div class="gl-spinner-chrono">
+        <div class="chrono-gimbal-1"></div>
+        <div class="chrono-gimbal-2"></div>
+        <img class="chrono-core-mark" src="/genlayer-mark.svg" alt="Core" />
       </div>
     `,
-    css: `/* GenLayer Consensus Orbit */
-.gl-spinner-orbit {
+    css: `/* 02: Chrono Gyroscope */
+.gl-spinner-chrono {
   position: relative;
   width: 120px;
   height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 600px;
 }
-.orbit-ring {
+.chrono-gimbal-1 {
   position: absolute;
+  inset: 0;
   border-radius: 50%;
-}
-.orbit-ring-1 {
-  width: 75%;
-  height: 75%;
-  border: 1.5px dashed rgba(0, 240, 255, 0.4);
+  border: 2px solid transparent;
   border-top-color: #00F0FF;
-  animation: spin-cw 2s linear infinite;
+  border-bottom-color: #00F0FF;
+  animation: gimbal-spin-x 2s linear infinite;
 }
-.orbit-ring-2 {
-  width: 100%;
-  height: 100%;
-  border: 1.5px dashed rgba(255, 184, 0, 0.4);
-  border-bottom-color: #FFB800;
-  animation: spin-ccw 2.8s linear infinite;
-}
-.validator-node {
+.chrono-gimbal-2 {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  inset: 16%;
   border-radius: 50%;
-  background: #00F0FF;
-  box-shadow: 0 0 10px #00F0FF;
+  border: 1.5px dashed rgba(212, 255, 0, 0.6);
+  animation: gimbal-spin-y 2.8s linear infinite;
 }
-.vn-1 { top: -4px; left: 50%; transform: translateX(-50%); }
-.vn-2 { bottom: -4px; left: 50%; transform: translateX(-50%); background: #FFB800; }
-.vn-3 { top: 50%; right: -4px; transform: translateY(-50%); background: #818CF8; }
-@keyframes spin-cw { to { transform: rotate(360deg); } }
-@keyframes spin-ccw { to { transform: rotate(-360deg); } }`,
-    react: `export function GenLayerOrbitSpinner({ size = 120 }) {
+.chrono-core-mark {
+  width: 44%;
+  height: 44%;
+  animation: core-levitate 2s ease-in-out infinite;
+}
+@keyframes gimbal-spin-x { 0%{transform:rotateX(0deg) rotateZ(0deg);} 100%{transform:rotateX(360deg) rotateZ(360deg);} }
+@keyframes gimbal-spin-y { 0%{transform:rotateY(0deg) rotateZ(360deg);} 100%{transform:rotateY(360deg) rotateZ(0deg);} }
+@keyframes core-levitate { 0%,100%{transform:translateY(0px) scale(0.95);} 50%{transform:translateY(-6px) scale(1.05);} }`,
+    react: `export function GenLayerChronoSpinner({ size = 120 }) {
   return (
-    <div className="gl-spinner-orbit" style={{ width: size, height: size }}>
-      <div className="orbit-ring orbit-ring-1"><div className="validator-node vn-1"/></div>
-      <div className="orbit-ring orbit-ring-2"><div className="validator-node vn-2"/><div className="validator-node vn-3"/></div>
-      <img className="gl-orbit-center" src="/genlayer-mark.svg" alt="GenLayer" />
+    <div className="gl-spinner-chrono" style={{ width: size, height: size }}>
+      <div className="chrono-gimbal-1" />
+      <div className="chrono-gimbal-2" />
+      <img className="chrono-core-mark" src="/genlayer-mark.svg" alt="GenLayer" />
     </div>
   );
 }`,
     vue: `<template>
-  <div class="gl-spinner-orbit" :style="{ width: size + 'px', height: size + 'px' }">
-    <div class="orbit-ring orbit-ring-1"><div class="validator-node vn-1"></div></div>
-    <div class="orbit-ring orbit-ring-2"><div class="validator-node vn-2"></div><div class="validator-node vn-3"></div></div>
-    <img class="gl-orbit-center" src="/genlayer-mark.svg" alt="GenLayer" />
+  <div class="gl-spinner-chrono" :style="{ width: size + 'px', height: size + 'px' }">
+    <div class="chrono-gimbal-1"></div>
+    <div class="chrono-gimbal-2"></div>
+    <img class="chrono-core-mark" src="/genlayer-mark.svg" alt="GenLayer" />
   </div>
 </template>
 
@@ -187,45 +171,32 @@ defineProps({ size: { type: Number, default: 120 } });
     standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="200" height="200">
   <defs>
     <style>
-      .r-1 { animation: rot-1 2s linear infinite; transform-origin: center; }
-      .r-2 { animation: rot-2 2.8s linear infinite; transform-origin: center; }
-      @keyframes rot-1 { to { transform: rotate(360deg); } }
-      @keyframes rot-2 { to { transform: rotate(-360deg); } }
+      .r1 { animation: spin1 2s linear infinite; transform-origin: center; }
+      @keyframes spin1 { to { transform: rotate(360deg); } }
     </style>
   </defs>
-  <circle cx="60" cy="60" r="42" fill="none" stroke="#00F0FF" stroke-width="2" stroke-dasharray="6 6" class="r-1"/>
-  <circle cx="60" cy="60" r="54" fill="none" stroke="#FFB800" stroke-width="2" stroke-dasharray="8 8" class="r-2"/>
-  <circle cx="60" cy="18" r="4" fill="#00F0FF" class="r-1"/>
-  <circle cx="60" cy="114" r="4" fill="#FFB800" class="r-2"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#00F0FF" stroke-width="2" stroke-dasharray="20 40" class="r1"/>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#D4FF00" stroke-width="1.5" stroke-dasharray="10 20"/>
   <polygon points="56,48 50,60 56,63 40,70 56,36 56,48" fill="#00F0FF"/>
-  <polygon points="64,48 70,60 64,63 80,70 64,36 64,48" fill="#FFB800"/>
+  <polygon points="64,48 70,60 64,63 80,70 64,36 64,48" fill="#FF9E00"/>
   <polygon points="60,53 64,60 60,62 56,60 60,53" fill="#FFFFFF"/>
 </svg>`
   },
 
-  hex: {
-    id: 'hex',
-    name: 'GenVM Hex Laser Pulsar',
-    tag: 'VM Execution',
-    description: 'Precision cybernetic hexagon with glowing laser dash tracing and breathing GenLayer core for intelligent execution.',
+  synapse: {
+    id: 'synapse',
+    name: 'Synaptic Lattice',
+    tag: '03 / NEURAL NODES',
+    description: 'Quantum neural coordinate lattice with floating validator node satellites exchanging consensus pulses.',
     render: () => `
-      <div class="gl-spinner-hex">
-        <svg class="hex-svg" viewBox="0 0 100 100">
-          <defs>
-            <linearGradient id="hex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00F0FF" />
-              <stop offset="50%" stop-color="#818CF8" />
-              <stop offset="100%" stop-color="#FFB800" />
-            </linearGradient>
-          </defs>
-          <polygon class="hex-track" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-          <polygon class="hex-laser" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-        </svg>
-        <img class="hex-core-mark" src="/genlayer-mark.svg" alt="GenVM Core" />
+      <div class="gl-spinner-synapse">
+        <div class="synapse-ring-outer"></div>
+        <div class="synapse-node-satellite"></div>
+        <img src="/genlayer-mark.svg" style="width:38%; height:38%; filter:drop-shadow(0 0 10px #00F0FF);" alt="Core" />
       </div>
     `,
-    css: `/* GenVM Hex Laser Pulsar */
-.gl-spinner-hex {
+    css: `/* 03: Synaptic Lattice */
+.gl-spinner-synapse {
   position: relative;
   width: 120px;
   height: 120px;
@@ -233,117 +204,39 @@ defineProps({ size: { type: Number, default: 120 } });
   align-items: center;
   justify-content: center;
 }
-.hex-svg {
-  width: 100%;
-  height: 100%;
-  animation: hex-rotate 3.5s linear infinite;
-}
-.hex-track {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 3;
-}
-.hex-laser {
-  fill: none;
-  stroke: url(#hex-gradient);
-  stroke-width: 4;
-  stroke-dasharray: 60 180;
-  stroke-linecap: round;
-  animation: hex-dash 2s ease-in-out infinite;
-}
-@keyframes hex-dash {
-  0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -240; }
-}
-@keyframes hex-rotate { to { transform: rotate(360deg); } }`,
-    react: `export function GenLayerHexSpinner({ size = 120 }) {
-  return (
-    <div className="gl-spinner-hex" style={{ width: size, height: size }}>
-      <svg className="hex-svg" viewBox="0 0 100 100">
-        <polygon className="hex-track" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-        <polygon className="hex-laser" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-      </svg>
-      <img className="hex-core-mark" src="/genlayer-mark.svg" alt="GenVM" />
-    </div>
-  );
-}`,
-    vue: `<template>
-  <div class="gl-spinner-hex" :style="{ width: size + 'px', height: size + 'px' }">
-    <svg class="hex-svg" viewBox="0 0 100 100">
-      <polygon class="hex-track" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-      <polygon class="hex-laser" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
-    </svg>
-    <img class="hex-core-mark" src="/genlayer-mark.svg" alt="GenVM" />
-  </div>
-</template>
-
-<script setup>
-defineProps({ size: { type: Number, default: 120 } });
-</script>`,
-    standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
-  <defs>
-    <style>
-      .hex-r { animation: hr 3.5s linear infinite; transform-origin: center; }
-      @keyframes hr { to { transform: rotate(360deg); } }
-    </style>
-  </defs>
-  <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#00F0FF" stroke-width="4" stroke-dasharray="60 180" class="hex-r"/>
-</svg>`
-  },
-
-  neural: {
-    id: 'neural',
-    name: 'Neural Synapse Matrix',
-    tag: 'AI Consensus',
-    description: 'High-speed dual-gradient concentric plasma rings engineered for AI model deliberation states.',
-    render: () => `
-      <div class="gl-spinner-neural">
-        <div class="neural-ring"></div>
-        <div class="neural-ring-inner"></div>
-        <img class="neural-center-icon" src="/genlayer-mark.svg" alt="Neural Core" />
-      </div>
-    `,
-    css: `/* Neural Synapse Matrix */
-.gl-spinner-neural {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.neural-ring {
+.synapse-ring-outer {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  border: 2.5px solid transparent;
-  border-top-color: #00F0FF;
-  border-bottom-color: #FFB800;
-  filter: drop-shadow(0 0 10px #00F0FF);
-  animation: spin-cw 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+  border: 2px solid rgba(255, 255, 255, 0.08);
 }
-.neural-ring-inner {
+.synapse-node-satellite {
   position: absolute;
-  inset: 18%;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  border: 2px dashed rgba(255, 255, 255, 0.4);
-  border-left-color: #00F0FF;
-  animation: spin-ccw 1.5s linear infinite;
+  background: #00F0FF;
+  box-shadow: 0 0 12px #00F0FF;
+  animation: orbit-satellite 2s linear infinite;
+}
+@keyframes orbit-satellite {
+  from { transform: rotate(0deg) translateX(55px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(55px) rotate(-360deg); }
 }`,
-    react: `export function GenLayerNeuralSpinner({ size = 120 }) {
+    react: `export function GenLayerSynapseSpinner({ size = 120 }) {
   return (
-    <div className="gl-spinner-neural" style={{ width: size, height: size }}>
-      <div className="neural-ring" />
-      <div className="neural-ring-inner" />
-      <img className="neural-center-icon" src="/genlayer-mark.svg" alt="Neural" />
+    <div className="gl-spinner-synapse" style={{ width: size, height: size }}>
+      <div className="synapse-ring-outer" />
+      <div className="synapse-node-satellite" />
+      <img src="/genlayer-mark.svg" style={{ width: '38%', height: '38%' }} alt="Synapse" />
     </div>
   );
 }`,
     vue: `<template>
-  <div class="gl-spinner-neural" :style="{ width: size + 'px', height: size + 'px' }">
-    <div class="neural-ring"></div>
-    <div class="neural-ring-inner"></div>
-    <img class="neural-center-icon" src="/genlayer-mark.svg" alt="Neural" />
+  <div class="gl-spinner-synapse" :style="{ width: size + 'px', height: size + 'px' }">
+    <div class="synapse-ring-outer"></div>
+    <div class="synapse-node-satellite"></div>
+    <img src="/genlayer-mark.svg" style="width:38%; height:38%;" alt="Synapse" />
   </div>
 </template>
 
@@ -353,121 +246,138 @@ defineProps({ size: { type: Number, default: 120 } });
     standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
   <defs>
     <style>
-      .nr-1 { animation: nr1 2s linear infinite; transform-origin: center; }
-      @keyframes nr1 { to { transform: rotate(360deg); } }
+      .orb { animation: rot-orb 2s linear infinite; transform-origin: center; }
+      @keyframes rot-orb { to { transform: rotate(360deg); } }
     </style>
   </defs>
-  <circle cx="50" cy="50" r="44" fill="none" stroke="#00F0FF" stroke-width="4" stroke-dasharray="140 180" class="nr-1"/>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <circle cx="50" cy="6" r="5" fill="#00F0FF" class="orb"/>
 </svg>`
   },
 
-  inline: {
-    id: 'inline',
-    name: 'Minimalist Micro-Loader',
-    tag: 'Buttons & Badges',
-    description: 'Ultra-lightweight 60fps dual-gradient orbital arc with floating GenLayer core dot for fast responsive loading states.',
+  matrix: {
+    id: 'matrix',
+    name: 'Matrix Laser Beam',
+    tag: '04 / VM CONTOUR',
+    description: 'High-speed cybernetic hexagonal beam tracing through the GenVM bytecode execution pipeline.',
     render: () => `
-      <div class="gl-spinner-inline">
-        <svg class="gl-inline-svg" viewBox="0 0 100 100">
-          <defs>
-            <linearGradient id="inline-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00F0FF" />
-              <stop offset="50%" stop-color="#818CF8" />
-              <stop offset="100%" stop-color="#FFB800" />
-            </linearGradient>
-          </defs>
-          <circle class="gl-inline-track" cx="50" cy="50" r="42" />
-          <circle class="gl-inline-spinner" cx="50" cy="50" r="42" />
+      <div class="gl-spinner-matrix">
+        <svg class="matrix-hex-svg" viewBox="0 0 100 100">
+          <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="3" />
+          <polygon class="matrix-laser-contour" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
         </svg>
-        <div class="gl-inline-dot"></div>
+        <img src="/genlayer-mark.svg" style="position:absolute; width:36%; height:36%; filter:drop-shadow(0 0 12px #D4FF00);" alt="GenVM" />
       </div>
     `,
-    css: `/* Minimalist Micro-Loader */
-.gl-spinner-inline {
-  width: var(--spin-size, 80px);
-  height: var(--spin-size, 80px);
+    css: `/* 04: Matrix Laser Beam */
+.gl-spinner-matrix {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.matrix-hex-svg {
+  width: 100%;
+  height: 100%;
+  animation: matrix-hex-rot 4s linear infinite;
+}
+.matrix-laser-contour {
+  fill: none;
+  stroke: #D4FF00;
+  stroke-width: 4;
+  stroke-dasharray: 60 200;
+  stroke-linecap: round;
+  animation: matrix-laser-trace 2s ease-in-out infinite;
+}
+@keyframes matrix-laser-trace { 0%{stroke-dashoffset: 0;} 100%{stroke-dashoffset: -260;} }
+@keyframes matrix-hex-rot { to { transform: rotate(360deg); } }`,
+    react: `export function GenLayerMatrixSpinner({ size = 120 }) {
+  return (
+    <div className="gl-spinner-matrix" style={{ width: size, height: size }}>
+      <svg className="matrix-hex-svg" viewBox="0 0 100 100">
+        <polygon className="matrix-laser-contour" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
+      </svg>
+      <img src="/genlayer-mark.svg" style={{ position:'absolute', width:'36%', height:'36%' }} alt="GenVM" />
+    </div>
+  );
+}`,
+    vue: `<template>
+  <div class="gl-spinner-matrix" :style="{ width: size + 'px', height: size + 'px' }">
+    <svg class="matrix-hex-svg" viewBox="0 0 100 100">
+      <polygon class="matrix-laser-contour" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
+    </svg>
+  </div>
+</template>
+
+<script setup>
+defineProps({ size: { type: Number, default: 120 } });
+</script>`,
+    standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <defs>
+    <style>
+      .hex-t { animation: ht 2s ease-in-out infinite; stroke-dasharray: 60 200; stroke-linecap: round; }
+      @keyframes ht { 0%{stroke-dashoffset:0;} 100%{stroke-dashoffset:-260;} }
+    </style>
+  </defs>
+  <polygon class="hex-t" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="none" stroke="#D4FF00" stroke-width="4"/>
+</svg>`
+  },
+
+  micro: {
+    id: 'micro',
+    name: 'Atom Microlight',
+    tag: '05 / BUTTON SPEED',
+    description: 'Ultra-lightweight 60fps dual-gradient arc loader engineered for transactional buttons and micro badges.',
+    render: () => `
+      <div class="gl-spinner-micro">
+        <div class="micro-arc-track"></div>
+      </div>
+    `,
+    css: `/* 05: Atom Microlight */
+.gl-spinner-micro {
+  width: 48px;
+  height: 48px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.gl-inline-svg {
+.micro-arc-track {
   width: 100%;
   height: 100%;
-  animation: gl-spin-cw var(--spin-speed, 1.2s) linear infinite;
-  transform-origin: center;
-}
-.gl-inline-track {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 6;
-}
-.gl-inline-spinner {
-  fill: none;
-  stroke: url(#inline-grad);
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: 180 270;
-  stroke-dashoffset: 0;
-  animation: gl-inline-dash var(--spin-speed, 1.2s) ease-in-out infinite;
-}
-.gl-inline-dot {
-  position: absolute;
-  width: 22%;
-  height: 22%;
   border-radius: 50%;
-  background: radial-gradient(circle, #FFFFFF 20%, #00F0FF 80%);
-  box-shadow: 0 0 14px #00F0FF;
-  animation: gl-floating 2s ease-in-out infinite;
+  border: 3px solid rgba(255, 255, 255, 0.08);
+  border-top-color: #00F0FF;
+  border-right-color: #D4FF00;
+  animation: micro-spin 1.2s linear infinite;
 }
-@keyframes gl-inline-dash {
-  0% { stroke-dashoffset: 0; }
-  50% { stroke-dashoffset: -130; }
-  100% { stroke-dashoffset: -260; }
-}
-@keyframes gl-spin-cw {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}`,
-    react: `export function GenLayerMicroLoader({ size = 48 }) {
+@keyframes micro-spin { to { transform: rotate(360deg); } }`,
+    react: `export function GenLayerMicroSpinner({ size = 32 }) {
   return (
-    <div className="gl-spinner-inline" style={{ width: size, height: size }}>
-      <svg className="gl-inline-svg" viewBox="0 0 100 100">
-        <defs>
-          <linearGradient id="inline-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00F0FF" />
-            <stop offset="50%" stopColor="#818CF8" />
-            <stop offset="100%" stopColor="#FFB800" />
-          </linearGradient>
-        </defs>
-        <circle className="gl-inline-track" cx="50" cy="50" r="42" />
-        <circle className="gl-inline-spinner" cx="50" cy="50" r="42" />
-      </svg>
-      <div className="gl-inline-dot" />
+    <div className="gl-spinner-micro" style={{ width: size, height: size }}>
+      <div className="micro-arc-track" />
     </div>
   );
 }`,
     vue: `<template>
-  <div class="gl-spinner-inline" :style="{ width: size + 'px', height: size + 'px' }">
-    <svg class="gl-inline-svg" viewBox="0 0 100 100">
-      <circle class="gl-inline-track" cx="50" cy="50" r="42" />
-      <circle class="gl-inline-spinner" cx="50" cy="50" r="42" />
-    </svg>
-    <div class="gl-inline-dot"></div>
+  <div class="gl-spinner-micro" :style="{ width: size + 'px', height: size + 'px' }">
+    <div class="micro-arc-track"></div>
   </div>
 </template>
 
 <script setup>
-defineProps({ size: { type: Number, default: 48 } });
+defineProps({ size: { type: Number, default: 32 } });
 </script>`,
     standaloneSvg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
   <defs>
     <style>
-      .in-s { animation: in-rot 1s linear infinite; transform-origin: center; }
-      @keyframes in-rot { to { transform: rotate(360deg); } }
+      .mc-rot { animation: mcr 1s linear infinite; transform-origin: center; }
+      @keyframes mcr { to { transform: rotate(360deg); } }
     </style>
   </defs>
-  <circle cx="50" cy="50" r="40" fill="none" stroke="#00F0FF" stroke-width="6" stroke-dasharray="140 260" class="in-s"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#00F0FF" stroke-width="6" stroke-dasharray="140 260" class="mc-rot"/>
 </svg>`
   }
 };
