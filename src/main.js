@@ -7,7 +7,7 @@ let currentTab = 'css';
 let customSpeed = 2.2;
 let customSize = 140;
 let customGlow = 1;
-let currentPalette = 'cyberpunk';
+let currentPalette = 'titanium';
 let isConsensusRunning = false;
 
 // DOM Ready
@@ -19,21 +19,26 @@ window.addEventListener('DOMContentLoaded', () => {
   initConsensusPlayground();
 });
 
-// Render Hero
+// Render Hero in Technical Viewport
 function renderHeroSpinner() {
   const stage = document.getElementById('hero-stage');
   if (!stage) return;
   const s = SPINNERS[currentSpinnerId];
   stage.innerHTML = `
-    <div class="hologram-shimmer"></div>
+    <div class="crosshair-tl"></div>
+    <div class="crosshair-tr"></div>
+    <div class="crosshair-bl"></div>
+    <div class="crosshair-br"></div>
     ${s.render()}
-    <div style="position: absolute; bottom: 1.25rem; font-size: 0.85rem; color: var(--text-muted); font-weight: 600; z-index: 10;">
-      3D Interactive Mode • Active: <span style="color: var(--gl-cyan-light);">${s.name}</span>
+    <div class="viewport-telemetry-strip">
+      <div>SPEC: <span>${s.name.toUpperCase()}</span></div>
+      <div>CORE: <span>GENVM_V0.1</span></div>
+      <div>GPU: <span>60 FPS</span></div>
     </div>
   `;
 }
 
-// 3D Holographic Gyro Tracking (Mouse + Mobile Device Orientation)
+// 3D Holographic Gyro Tracking
 function init3DHologramTracking() {
   const stage = document.getElementById('hero-stage');
   if (!stage) return;
@@ -44,8 +49,8 @@ function init3DHologramTracking() {
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
 
-    const tiltX = -(y / (rect.height / 2)) * 22;
-    const tiltY = (x / (rect.width / 2)) * 22;
+    const tiltX = -(y / (rect.height / 2)) * 18;
+    const tiltY = (x / (rect.width / 2)) * 18;
 
     stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
     stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
@@ -56,12 +61,12 @@ function init3DHologramTracking() {
     stage.style.setProperty('--tilt-y', '0deg');
   });
 
-  // Mobile DeviceOrientation (Tilt Gyroscope)
+  // Mobile DeviceOrientation
   if (window.DeviceOrientationEvent) {
     window.addEventListener('deviceorientation', (e) => {
       if (e.beta !== null && e.gamma !== null) {
-        const tiltX = Math.min(Math.max(-e.beta * 0.4, -20), 20);
-        const tiltY = Math.min(Math.max(e.gamma * 0.4, -20), 20);
+        const tiltX = Math.min(Math.max(-e.beta * 0.35, -18), 18);
+        const tiltY = Math.min(Math.max(e.gamma * 0.35, -18), 18);
         stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
         stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
       }
@@ -105,8 +110,8 @@ window.selectHeroSpinner = function(id) {
   if (SPINNERS[id]) {
     currentSpinnerId = id;
     renderHeroSpinner();
-    showToast(`✨ Selected: ${SPINNERS[id].name}`);
-    window.scrollTo({ top: 180, behavior: 'smooth' });
+    showToast(`⚡ Selected: ${SPINNERS[id].name}`);
+    window.scrollTo({ top: 140, behavior: 'smooth' });
   }
 };
 
@@ -199,7 +204,7 @@ function initControls() {
 // Environment Switcher
 window.setEnvironment = function(env) {
   document.body.className = env === 'space' ? '' : `env-${env}`;
-  document.querySelectorAll('.btn-env').forEach(b => {
+  document.querySelectorAll('.env-chip').forEach(b => {
     b.classList.toggle('active', b.dataset.env === env);
   });
   showToast(`🌐 Environment: ${env.toUpperCase()}`);
@@ -207,28 +212,28 @@ window.setEnvironment = function(env) {
 
 window.setPalette = function(paletteName) {
   currentPalette = paletteName;
-  document.querySelectorAll('.palette-btn').forEach(b => {
+  document.querySelectorAll('.seg-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.palette === paletteName);
   });
 
-  if (paletteName === 'cyberpunk') {
-    document.documentElement.style.setProperty('--gl-purple', '#8B5CF6');
-    document.documentElement.style.setProperty('--gl-cyan', '#06B6D4');
-    document.documentElement.style.setProperty('--gl-pink', '#EC4899');
+  if (paletteName === 'titanium') {
+    document.documentElement.style.setProperty('--cyan-plasma', '#00F0FF');
+    document.documentElement.style.setProperty('--solar-amber', '#FFB800');
+    document.documentElement.style.setProperty('--laser-violet', '#818CF8');
   } else if (paletteName === 'emerald') {
-    document.documentElement.style.setProperty('--gl-purple', '#10B981');
-    document.documentElement.style.setProperty('--gl-cyan', '#34D399');
-    document.documentElement.style.setProperty('--gl-pink', '#059669');
-  } else if (paletteName === 'electric') {
-    document.documentElement.style.setProperty('--gl-purple', '#3B82F6');
-    document.documentElement.style.setProperty('--gl-cyan', '#60A5FA');
-    document.documentElement.style.setProperty('--gl-pink', '#93C5FD');
+    document.documentElement.style.setProperty('--cyan-plasma', '#00FF9D');
+    document.documentElement.style.setProperty('--solar-amber', '#00F0FF');
+    document.documentElement.style.setProperty('--laser-violet', '#38BDF8');
+  } else if (paletteName === 'solar') {
+    document.documentElement.style.setProperty('--cyan-plasma', '#FFB800');
+    document.documentElement.style.setProperty('--solar-amber', '#FF5500');
+    document.documentElement.style.setProperty('--laser-violet', '#FFB800');
   }
-  showToast(`🎨 Palette: ${paletteName.toUpperCase()}`);
+  showToast(`🎨 Preset: ${paletteName.toUpperCase()}`);
 };
 
 // ==========================================================================
-// CINEMATIC CONSENSUS PLAYGROUND
+// CINEMATIC CONSENSUS ARENA SIMULATION
 // ==========================================================================
 function initConsensusPlayground() {
   const btn = document.getElementById('btn-trigger-consensus');
@@ -245,7 +250,7 @@ window.runConsensusSimulation = function() {
   const logStream = document.getElementById('cp-log-stream');
   if (btn) {
     btn.disabled = true;
-    btn.textContent = '⏳ Simulating Consensus Round...';
+    btn.textContent = '⏳ DELIBERATING EQUIVALENCE PRINCIPLE...';
   }
   if (logStream) logStream.innerHTML = '';
 
@@ -270,7 +275,7 @@ window.runConsensusSimulation = function() {
   addLog('🚀 Leader Validator (Node #1) proposing state transaction...', 'cyan');
 
   setTimeout(() => {
-    addLog('⚡ Broadcasted calldata payload to 4 independent validator nodes...', 'purple');
+    addLog('⚡ Broadcasted calldata payload to 4 independent validator nodes...', 'amber');
     document.querySelectorAll('.cp-laser-line').forEach(l => l.classList.add('active'));
   }, 1000);
 
@@ -307,7 +312,7 @@ window.runConsensusSimulation = function() {
     showToast('🎉 Consensus Round Successfully Finalized!');
     if (btn) {
       btn.disabled = false;
-      btn.textContent = '⚡ Run Consensus Round Simulation';
+      btn.textContent = '⚡ RUN CONSENSUS ROUND SIMULATION';
     }
     isConsensusRunning = false;
   }, 6800);

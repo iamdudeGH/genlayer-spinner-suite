@@ -4,132 +4,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GenLayer Spinner Suite — Official Brand Loading Animations</title>
+  <title>GenLayer Vector Spinner Studio — Official Brand Loading Animations</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
     rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-C3nq8l-B.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Bs8y4Gem.css">
+  <script type="module" crossorigin src="/assets/index-CY71lL4o.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BXW338Lv.css">
 </head>
 
 <body>
-  <!-- Background Cosmic Grid -->
-  <div class="space-canvas"></div>
-  <div class="cosmic-grid"></div>
+  <!-- Studio Line Matrix Texture -->
+  <div class="studio-matrix-grid"></div>
 
   <div class="container">
-    <!-- Header -->
-    <header class="app-header">
-      <div class="brand-badge">
-        <img src="/genlayer-mark.svg" class="brand-logo-img" alt="GenLayer Mark" />
-        <span class="brand-title">GenLayer <span>Spinner Suite</span></span>
+    <!-- Studio Topbar -->
+    <header class="studio-topbar">
+      <div class="studio-brand-group">
+        <img src="/genlayer-mark.svg" class="studio-brand-mark" alt="GenLayer Mark" />
+        <div class="studio-brand-title">GenLayer <span>Vector Studio</span></div>
+      </div>
+
+      <div class="studio-telemetry-badge">
+        <div class="telemetry-dot"></div>
+        <span>60 FPS GPU • GENVM V0.1</span>
       </div>
     </header>
 
-    <!-- Environment Switcher Bar -->
-    <div class="env-bar">
-      <button class="btn-env active" data-env="space" onclick="setEnvironment('space')">🌌 Cosmic Space</button>
-      <button class="btn-env" data-env="oled" onclick="setEnvironment('oled')">🌑 Pitch OLED</button>
-      <button class="btn-env" data-env="glass" onclick="setEnvironment('glass')">💎 Studio Glass</button>
+    <!-- Environment Switcher -->
+    <div class="env-selector-bar">
+      <button class="env-chip active" data-env="space" onclick="setEnvironment('space')">🌌 COSMIC TITANIUM</button>
+      <button class="env-chip" data-env="oled" onclick="setEnvironment('oled')">🌑 PITCH OLED</button>
+      <button class="env-chip" data-env="glass" onclick="setEnvironment('glass')">💎 OBSIDIAN GLASS</button>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-pill">⚡ GenLayer Ecosystem Mission Submission</div>
-      <h1 class="hero-title">
-        The Iconic <span class="gradient-text">GenLayer Spinner</span>
-      </h1>
-      <p class="hero-subtitle">
-        A production-grade, 60fps GPU-accelerated loading animation suite crafted from official GenLayer brand geometry. Built for AI consensus states, GenVM execution, and dApp UX.
-      </p>
+    <!-- Hero Studio Deck Section -->
+    <section class="hero-deck-section">
+      <div class="hero-deck-header">
+        <div class="studio-eyebrow">⚡ GENLAYER ECOSYSTEM MISSION SUBMISSION</div>
+        <h1 class="studio-deck-title">
+          Intelligent Consensus <span class="accent-cyan">Loading System</span>
+        </h1>
+        <p class="studio-deck-subtitle">
+          An industrial-grade, 60fps GPU-accelerated vector loading suite engineered from official GenLayer geometry. Designed for AI consensus states and GenVM dApp execution.
+        </p>
+      </div>
 
       <!-- Quick Install Box -->
       <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
-        <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(139,92,246,0.3); border-radius: 10px; padding: 0.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem;">
-          <span style="color: #94A3B8;">$ npm install</span>
-          <span style="color: #38BDF8; font-weight: 700;">genlayer-spinners</span>
-          <button onclick="navigator.clipboard.writeText('npm install genlayer-spinners'); showToast('📋 Command copied!');" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); color: white; padding: 0.2rem 0.6rem; border-radius: 6px; cursor: pointer; font-size: 0.75rem;">📋 Copy</button>
+        <div style="background: rgba(14, 16, 23, 0.9); border: 1px solid var(--border-hairline-bright); border-radius: 8px; padding: 0.5rem 1.25rem; display: flex; align-items: center; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem;">
+          <span style="color: var(--text-muted);">$ npm install</span>
+          <span style="color: var(--cyan-plasma); font-weight: 700;">genlayer-spinners</span>
+          <button onclick="navigator.clipboard.writeText('npm install genlayer-spinners'); showToast('📋 Command copied!');" style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-hairline); color: var(--titanium-white); padding: 0.25rem 0.65rem; border-radius: 4px; cursor: pointer; font-size: 0.74rem;">📋 Copy</button>
         </div>
       </div>
 
-      <!-- Hero Showcase Card (with 3D Holographic Stage) -->
-      <div class="hero-showcase-card">
-        <!-- Stage -->
-        <div class="hero-stage" id="hero-stage" title="Move your mouse or tilt your phone to rotate in 3D perspective">
-          <!-- Injected via JS with 3D gyro -->
+      <!-- Workstation Split Deck -->
+      <div class="studio-workstation">
+        <!-- Left: 3D Holographic Viewport -->
+        <div class="viewport-deck" id="hero-stage" title="Move your mouse or tilt device for 3D gyro perspective">
+          <!-- Injected via main.js -->
         </div>
 
-        <!-- Controls -->
-        <div class="controls-panel">
-          <div class="controls-title">
-            <span>⚙️</span> Real-time Customizer
+        <!-- Right: Studio Precision Control Console -->
+        <div class="control-console">
+          <div class="console-header">
+            <div class="console-title">
+              <span>🎛️</span> Parameter Deck
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-dim);">
+              REAL-TIME SYNC
+            </div>
           </div>
 
           <!-- Speed Slider -->
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Rotation & Morph Speed</span>
-              <span class="control-val" id="speed-val">2.2s</span>
+          <div class="console-group">
+            <div class="console-label-row">
+              <span>Rotation & Morph Velocity</span>
+              <span class="console-val-badge" id="speed-val">2.2s</span>
             </div>
-            <input type="range" class="slider-input" id="speed-slider" min="0.6" max="5.0" step="0.1" value="2.2" />
+            <input type="range" class="studio-slider" id="speed-slider" min="0.6" max="5.0" step="0.1" value="2.2" />
           </div>
 
           <!-- Size Slider -->
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Spinner Dimension</span>
-              <span class="control-val" id="size-val">140px</span>
+          <div class="console-group">
+            <div class="console-label-row">
+              <span>Vector Scale Dimension</span>
+              <span class="console-val-badge" id="size-val">140px</span>
             </div>
-            <input type="range" class="slider-input" id="size-slider" min="60" max="220" step="5" value="140" />
+            <input type="range" class="studio-slider" id="size-slider" min="60" max="220" step="5" value="140" />
           </div>
 
           <!-- Glow Intensity -->
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Glow & Bloom Intensity</span>
-              <span class="control-val" id="glow-val">100%</span>
+          <div class="console-group">
+            <div class="console-label-row">
+              <span>Bloom / Specular Luminescence</span>
+              <span class="console-val-badge" id="glow-val">100%</span>
             </div>
-            <input type="range" class="slider-input" id="glow-slider" min="0" max="2.5" step="0.1" value="1.0" />
+            <input type="range" class="studio-slider" id="glow-slider" min="0" max="2.5" step="0.1" value="1.0" />
           </div>
 
-          <!-- Palette Switcher -->
-          <div class="control-group">
-            <div class="control-label-row">
-              <span>Brand Color Theme</span>
+          <!-- Theme Palette Segmented Bar -->
+          <div class="console-group">
+            <div class="console-label-row">
+              <span>Chromatic Theme Preset</span>
             </div>
-            <div class="palette-options">
-              <button class="palette-btn active" data-palette="cyberpunk" onclick="setPalette('cyberpunk')">Cyberpunk</button>
-              <button class="palette-btn" data-palette="emerald" onclick="setPalette('emerald')">Consensus</button>
-              <button class="palette-btn" data-palette="electric" onclick="setPalette('electric')">Electric</button>
+            <div class="palette-segmented-bar">
+              <button class="seg-btn active" data-palette="titanium" onclick="setPalette('titanium')">TITANIUM</button>
+              <button class="seg-btn" data-palette="emerald" onclick="setPalette('emerald')">EMERALD</button>
+              <button class="seg-btn" data-palette="solar" onclick="setPalette('solar')">SOLAR GOLD</button>
             </div>
           </div>
 
           <!-- 1-Click Code Button -->
-          <button class="btn-copy-code" onclick="openCodeModal()">
-            <span>📋</span> Export Spinner Code
+          <button class="btn-studio-export" onclick="openCodeModal()">
+            <span>📋</span> EXPORT INTEGRATION CODE
           </button>
         </div>
       </div>
     </section>
 
-    <!-- CINEMATIC CONSENSUS PLAYGROUND -->
-    <section class="consensus-playground-section">
-      <div class="cp-header">
-        <div class="hero-pill">🪐 Live Interactive Playground</div>
+    <!-- CINEMATIC CONSENSUS ARENA SECTION -->
+    <section class="consensus-arena-section">
+      <div class="arena-header">
+        <div class="studio-eyebrow">🪐 LIVE SYSTEM VERIFICATION</div>
         <h2 class="section-title">GenLayer Validator Consensus Arena</h2>
-        <p class="section-sub">Experience how the spinner visualizes real-time Optimistic Democracy consensus across 5 independent validator nodes.</p>
+        <p class="section-sub">Experience how the spinner coordinates real-time Optimistic Democracy consensus across 5 independent validator nodes.</p>
       </div>
 
-      <div class="cp-matrix-grid">
-        <!-- Visual Arena -->
-        <div class="cp-visual-arena">
+      <div class="arena-grid">
+        <!-- Visual Box -->
+        <div class="arena-visual-box">
           <svg class="cp-laser-svg">
-            <line x1="50%" y1="50px" x2="80%" y2="135px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="70%" y2="250px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="30%" y2="250px" class="cp-laser-line" />
-            <line x1="50%" y1="50px" x2="20%" y2="135px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="80%" y2="140px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="70%" y2="260px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="30%" y2="260px" class="cp-laser-line" />
+            <line x1="50%" y1="50px" x2="20%" y2="140px" class="cp-laser-line" />
           </svg>
 
           <!-- Central Spinner -->
@@ -141,49 +152,49 @@
 
           <!-- Validator Nodes -->
           <div class="cp-validator-node cp-node-1 leader" id="cp-node-1">
-            <span>👑</span>
-            <span>Leader</span>
+            <span style="font-size: 0.85rem;">👑</span>
+            <span>LEADER</span>
           </div>
           <div class="cp-validator-node cp-node-2" id="cp-node-2">
-            <span>⚡</span>
-            <span>Node #2</span>
+            <span style="font-size: 0.85rem;">⚡</span>
+            <span>NODE #2</span>
           </div>
           <div class="cp-validator-node cp-node-3" id="cp-node-3">
-            <span>⚡</span>
-            <span>Node #3</span>
+            <span style="font-size: 0.85rem;">⚡</span>
+            <span>NODE #3</span>
           </div>
           <div class="cp-validator-node cp-node-4" id="cp-node-4">
-            <span>⚡</span>
-            <span>Node #4</span>
+            <span style="font-size: 0.85rem;">⚡</span>
+            <span>NODE #4</span>
           </div>
           <div class="cp-validator-node cp-node-5" id="cp-node-5">
-            <span>⚡</span>
-            <span>Node #5</span>
+            <span style="font-size: 0.85rem;">⚡</span>
+            <span>NODE #5</span>
           </div>
         </div>
 
-        <!-- Terminal Logs -->
-        <div class="cp-terminal">
-          <div class="cp-term-header">
+        <!-- Terminal Box -->
+        <div class="arena-terminal">
+          <div class="terminal-header">
             <span>CONSENSUS_LOGS: genvm_leader.log</span>
-            <span style="color:#10B981;">● RUNNING</span>
+            <span style="color: var(--acid-emerald);">● RUNNING</span>
           </div>
-          <div class="cp-log-stream" id="cp-log-stream">
+          <div class="terminal-logs" id="cp-log-stream">
             <div class="log-line">Ready to simulate GenLayer Optimistic Democracy round.</div>
-            <div class="log-line">Click button below to initiate multi-validator verification.</div>
+            <div class="log-line">Click button below to initiate multi-validator equivalence checks.</div>
           </div>
           <button class="btn-trigger-consensus" id="btn-trigger-consensus" onclick="runConsensusSimulation()">
-            ⚡ Run Consensus Round Simulation
+            ⚡ RUN CONSENSUS ROUND SIMULATION
           </button>
         </div>
       </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- BENTO GALLERY SECTION -->
     <section class="gallery-section">
       <div class="section-heading">
         <h2 class="section-title">Spinner Animation Variants</h2>
-        <p class="section-sub">Choose from 5 distinct variations designed for different loading contexts across the GenLayer ecosystem.</p>
+        <p class="section-sub">Engineered variations optimized for different loading and execution states across the GenLayer ecosystem.</p>
       </div>
 
       <div class="gallery-grid" id="gallery-grid">
@@ -194,7 +205,7 @@
     <!-- Footer -->
     <footer class="app-footer">
       <p>Crafted with official GenLayer Brand Vectors for the GenLayer Spinner Mission.</p>
-      <p style="margin-top: 0.25rem; font-size: 0.78rem;">60fps Hardware-Accelerated CSS • Zero External Heavy Dependencies</p>
+      <p style="margin-top: 0.35rem; font-size: 0.72rem; color: var(--text-dim);">60 FPS GPU-Accelerated CSS • Zero External Heavy Dependencies</p>
     </footer>
   </div>
 
@@ -202,10 +213,10 @@
   <div class="modal-backdrop hidden" id="code-modal" onclick="closeCodeModal(event)">
     <div class="code-modal-card" onclick="event.stopPropagation()">
       <div class="modal-header-row">
-        <h3 id="modal-spinner-title" style="font-size: 1.15rem; font-weight: 700; color: #FFFFFF;">
-          Export Spinner Code
+        <h3 id="modal-spinner-title" style="font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--titanium-white);">
+          Export Integration Code
         </h3>
-        <button style="background:none;border:none;color:#94A3B8;font-size:1.5rem;cursor:pointer;" onclick="closeCodeModal()">&times;</button>
+        <button style="background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;" onclick="closeCodeModal()">&times;</button>
       </div>
 
       <div class="modal-tabs">
@@ -216,8 +227,8 @@
 
       <div class="code-block-wrap">
         <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-bottom: 0.5rem;">
-          <button class="btn-card-use" onclick="downloadSvgFile()">📥 Download SVG</button>
-          <button class="btn-card-use" onclick="copyCurrentSnippet()">📋 Copy Code</button>
+          <button class="btn-card-action" onclick="downloadSvgFile()">📥 Download SVG</button>
+          <button class="btn-card-action" onclick="copyCurrentSnippet()">📋 Copy Code</button>
         </div>
         <pre class="code-content" id="modal-code-content"></pre>
       </div>
