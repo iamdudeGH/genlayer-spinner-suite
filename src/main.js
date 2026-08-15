@@ -1,17 +1,22 @@
 import './style.css';
 import { SPINNERS } from './spinners.js';
+import { initCanvasBackground } from './canvas-bg.js';
+import { initDAppSimulators } from './simulators.js';
 
 // State
 let currentSpinnerId = 'quantum';
-let currentTab = 'css';
+let currentTab = 'react';
 let customSpeed = 2.2;
 let customSize = 140;
 let customGlow = 1;
 let currentPalette = 'titanium';
+let viewportMode = 'normal';
 let isConsensusRunning = false;
 
 // DOM Ready
 window.addEventListener('DOMContentLoaded', () => {
+  initCanvasBackground();
+  initDAppSimulators();
   renderHeroSpinner();
   renderGallery();
   initControls();
@@ -142,10 +147,12 @@ function updateCodeView() {
   if (!codeEl) return;
   const s = SPINNERS[currentSpinnerId];
 
-  if (currentTab === 'css') {
-    codeEl.textContent = s.css;
-  } else if (currentTab === 'react') {
+  if (currentTab === 'react') {
     codeEl.textContent = s.react;
+  } else if (currentTab === 'vue') {
+    codeEl.textContent = s.vue;
+  } else if (currentTab === 'css') {
+    codeEl.textContent = s.css;
   } else if (currentTab === 'html') {
     codeEl.textContent = s.render().trim();
   }

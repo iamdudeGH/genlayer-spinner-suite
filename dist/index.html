@@ -10,12 +10,13 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap"
     rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-CY71lL4o.js"></script>
+  <script type="module" crossorigin src="/assets/index-BSs9Tcb6.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BXW338Lv.css">
 </head>
 
 <body>
-  <!-- Studio Line Matrix Texture -->
+  <!-- Interactive Canvas Particle & Filament Mesh -->
+  <canvas id="bg-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 0;"></canvas>
   <div class="studio-matrix-grid"></div>
 
   <div class="container">
@@ -125,6 +126,59 @@
       </div>
     </section>
 
+    <!-- REAL-WORLD DAPP STAGING DECK -->
+    <section class="gallery-section" style="margin-bottom: 3.5rem;">
+      <div class="section-heading">
+        <div class="studio-eyebrow">📱 REAL-WORLD DAPP INTEGRATION</div>
+        <h2 class="section-title">Live Loading State Previews</h2>
+        <p class="section-sub">Interactive demonstrations showing how the spinners behave in live dApp transactions, AI queries, and deployments.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <!-- Sim 1: DeFi Swap -->
+        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
+            <span>⚡ DeFi Liquidity Swap</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--cyan-plasma);">GEN/USDC</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Simulate high-frequency transactional button loading with the Minimalist Micro-Loader.</p>
+          <button id="btn-sim-swap" style="background: var(--cyan-plasma); color: #000000; border: none; border-radius: 8px; padding: 0.85rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.85rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all 0.2s;">
+            ⚡ Swap 10 GEN for 42 USDC
+          </button>
+        </div>
+
+        <!-- Sim 2: AI Oracle -->
+        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
+            <span>🧠 AI Web Oracle Query</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--solar-amber);">MULTI-NODE</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Fetch live S&P 500 financial web sentiment with comparative Equivalence checking.</p>
+          <div id="oracle-result-box" style="min-height: 48px; background: rgba(0,0,0,0.4); border: 1px solid var(--border-hairline); border-radius: 6px; padding: 0.6rem; display:flex; align-items:center;">
+            <span style="color:var(--text-dim); font-size:0.78rem; font-family:'JetBrains Mono',monospace;">Waiting for trigger...</span>
+          </div>
+          <button id="btn-sim-oracle" style="background: var(--titanium-glass); border: 1px solid var(--solar-amber); color: var(--solar-amber); border-radius: 8px; padding: 0.75rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.82rem; cursor:pointer;">
+            🔍 Fetch Live Oracle Data
+          </button>
+        </div>
+
+        <!-- Sim 3: GenVM Deployer -->
+        <div style="background: var(--titanium-panel); border: 1px solid var(--border-hairline); border-radius: 12px; padding: 1.5rem; display:flex; flex-direction: column; gap: 1rem;">
+          <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--titanium-white); display:flex; justify-content:space-between;">
+            <span>📜 Python Contract Deployer</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:#00FF9D;">GENVM</span>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">Compile and broadcast intelligent Python contract bytecode to GenLayer Studionet.</p>
+          <div id="deploy-term-logs" style="min-height: 48px; background: #050608; border: 1px solid var(--border-hairline); border-radius: 6px; padding: 0.6rem; font-family:'JetBrains Mono',monospace; font-size:0.72rem; display:flex; flex-direction:column; gap:0.2rem;">
+            <span style="color:var(--text-dim);">Ready to deploy.</span>
+          </div>
+          <button id="btn-sim-deploy" style="background: var(--titanium-glass); border: 1px solid #00FF9D; color: #00FF9D; border-radius: 8px; padding: 0.75rem; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.82rem; cursor:pointer;">
+            🚀 Deploy Python Contract to GenVM
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- CINEMATIC CONSENSUS ARENA SECTION -->
     <section class="consensus-arena-section">
       <div class="arena-header">
@@ -220,8 +274,9 @@
       </div>
 
       <div class="modal-tabs">
-        <button class="modal-tab-btn active" data-tab="css" onclick="switchCodeTab('css')">Pure CSS</button>
-        <button class="modal-tab-btn" data-tab="react" onclick="switchCodeTab('react')">React JSX</button>
+        <button class="modal-tab-btn active" data-tab="react" onclick="switchCodeTab('react')">React JSX</button>
+        <button class="modal-tab-btn" data-tab="vue" onclick="switchCodeTab('vue')">Vue 3</button>
+        <button class="modal-tab-btn" data-tab="css" onclick="switchCodeTab('css')">Pure CSS</button>
         <button class="modal-tab-btn" data-tab="html" onclick="switchCodeTab('html')">HTML / SVG</button>
       </div>
 
