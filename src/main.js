@@ -15,9 +15,7 @@ const ICONS = {
   pause: `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`,
   inspect: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
   code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-  download: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
-  copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
-  grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`
+  download: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`
 };
 
 // DOM Ready
@@ -27,6 +25,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initControls();
   initKeyboardShortcuts();
   initTimeline();
+  initSpatialGyro();
 });
 
 // Render Crucible Stage
@@ -36,6 +35,12 @@ function renderCrucible() {
   const s = SPINNERS[activeSpecimenId];
 
   stage.innerHTML = `
+    <!-- Spatial Crosshairs -->
+    <div class="crosshair-corner ch-tl"></div>
+    <div class="crosshair-corner ch-tr"></div>
+    <div class="crosshair-corner ch-bl"></div>
+    <div class="crosshair-corner ch-br"></div>
+
     <!-- Top HUD -->
     <div class="stage-hud-top">
       <div>SPECIMEN: <span>${s.name.toUpperCase()}</span></div>
@@ -68,6 +73,41 @@ function renderCrucible() {
       <div class="timeline-timecode" id="timeline-timecode">00:01:12</div>
     </div>
   `;
+}
+
+// 3D Spatial Gyro Perspective Tracking
+function initSpatialGyro() {
+  const stage = document.getElementById('crucible-stage');
+  if (!stage) return;
+
+  stage.addEventListener('mousemove', (e) => {
+    const rect = stage.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    const tiltX = -(y / (rect.height / 2)) * 16;
+    const tiltY = (x / (rect.width / 2)) * 16;
+
+    stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
+    stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    stage.style.setProperty('--tilt-x', '0deg');
+    stage.style.setProperty('--tilt-y', '0deg');
+  });
+
+  // Mobile DeviceOrientation
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', (e) => {
+      if (e.beta !== null && e.gamma !== null) {
+        const tiltX = Math.min(Math.max(-e.beta * 0.35, -16), 16);
+        const tiltY = Math.min(Math.max(e.gamma * 0.35, -16), 16);
+        stage.style.setProperty('--tilt-x', `${tiltX.toFixed(2)}deg`);
+        stage.style.setProperty('--tilt-y', `${tiltY.toFixed(2)}deg`);
+      }
+    });
+  }
 }
 
 // Render Specimen Collection
