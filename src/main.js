@@ -2,7 +2,7 @@ import './style.css';
 import { SPINNERS } from './spinners.js';
 
 // State
-let activeSpecimenId = 'quantum';
+let activeSpecimenId = 'prism';
 let isPlaying = true;
 let isWireframeActive = false;
 let currentTab = 'react';
@@ -33,14 +33,13 @@ window.addEventListener('DOMContentLoaded', () => {
 function renderCrucible() {
   const stage = document.getElementById('crucible-stage');
   if (!stage) return;
-  const s = SPINNERS[activeSpecimenId] || Object.values(SPINNERS)[0];
-  if (!s) return;
+  const s = SPINNERS[activeSpecimenId];
 
   stage.innerHTML = `
     <!-- Top HUD -->
     <div class="stage-hud-top">
       <div>SPECIMEN: <span>${s.name.toUpperCase()}</span></div>
-      <div>CORE: <span>GENLAYER_MONO_V1</span></div>
+      <div>CORE: <span>GENLAYER_KINETIC_V1</span></div>
       <div>GPU: <span>60.0 FPS</span></div>
     </div>
 
@@ -131,12 +130,10 @@ window.toggleWireframe = function() {
 
 // Export Code Sheet
 window.openCodeSheet = function(id = activeSpecimenId) {
-  const s = SPINNERS[id] || SPINNERS[activeSpecimenId];
-  if (!s) return;
-  activeSpecimenId = s.id;
+  activeSpecimenId = id;
   const modal = document.getElementById('code-modal-sheet');
   const title = document.getElementById('sheet-specimen-title');
-  if (title) title.textContent = `${s.name} — Integration Spec`;
+  if (title) title.textContent = `${SPINNERS[id].name} — Integration Spec`;
   updateCodeSheetContent();
   if (modal) modal.classList.remove('hidden');
 };
@@ -157,8 +154,7 @@ window.switchSheetTab = function(tab) {
 function updateCodeSheetContent() {
   const pre = document.getElementById('sheet-code-pre');
   if (!pre) return;
-  const s = SPINNERS[activeSpecimenId] || Object.values(SPINNERS)[0];
-  if (!s) return;
+  const s = SPINNERS[activeSpecimenId];
 
   if (currentTab === 'react') pre.textContent = s.react;
   else if (currentTab === 'vue') pre.textContent = s.vue;
@@ -175,19 +171,19 @@ window.copySnippet = function() {
 };
 
 window.downloadSvg = function(id = activeSpecimenId) {
-  const s = SPINNERS[id] || SPINNERS[activeSpecimenId];
+  const s = SPINNERS[id];
   if (!s || !s.standaloneSvg) return;
 
   const blob = new Blob([s.standaloneSvg], { type: 'image/svg+xml' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `genlayer-${s.id}-spinner.svg`;
+  a.download = `genlayer-${id}-spinner.svg`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  showToast(`Exported genlayer-${s.id}-spinner.svg!`);
+  showToast(`Exported genlayer-${id}-spinner.svg!`);
 };
 
 // Controls
