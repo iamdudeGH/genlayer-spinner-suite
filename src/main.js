@@ -9,6 +9,17 @@ let currentTab = 'react';
 let animSpeed = 2.0;
 let animSize = 150;
 
+// SVG Icons
+const ICONS = {
+  play: `<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+  pause: `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`,
+  inspect: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+  code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  download: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`,
+  copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
+  grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`
+};
+
 // DOM Ready
 window.addEventListener('DOMContentLoaded', () => {
   renderCrucible();
@@ -48,8 +59,8 @@ function renderCrucible() {
 
     <!-- Timeline Scrubber Dock -->
     <div class="timeline-dock">
-      <button class="btn-playback" id="btn-play-pause" onclick="window.togglePlayPause()">
-        ${isPlaying ? '⏸' : '▶'}
+      <button class="btn-playback" id="btn-play-pause" onclick="window.togglePlayPause()" title="Spacebar to Play/Pause">
+        ${isPlaying ? ICONS.pause : ICONS.play}
       </button>
       <div class="timeline-track-wrap">
         <input type="range" class="timeline-slider" id="timeline-scrubber" min="0" max="100" value="50" />
@@ -68,7 +79,7 @@ function renderSpecimenGrid() {
     <div class="specimen-box" id="box-${s.id}">
       <div class="specimen-meta">
         <span class="specimen-index">${s.tag}</span>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-tertiary);">GPU OPTIMIZED</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-dim);">GPU OPTIMIZED</span>
       </div>
       <div class="specimen-name">${s.name}</div>
       <div class="specimen-stage-mini">
@@ -76,9 +87,15 @@ function renderSpecimenGrid() {
       </div>
       <div class="specimen-desc">${s.description}</div>
       <div class="specimen-actions">
-        <button class="btn-spec-action" onclick="window.selectSpecimen('${s.id}')">🔍 Inspect in Lab</button>
-        <button class="btn-spec-action" onclick="window.openCodeSheet('${s.id}')">📋 Code</button>
-        <button class="btn-spec-action" onclick="window.downloadSvg('${s.id}')">📥 SVG</button>
+        <button class="btn-spec-action" onclick="window.selectSpecimen('${s.id}')">
+          ${ICONS.inspect} Inspect
+        </button>
+        <button class="btn-spec-action" onclick="window.openCodeSheet('${s.id}')">
+          ${ICONS.code} Code
+        </button>
+        <button class="btn-spec-action" onclick="window.downloadSvg('${s.id}')">
+          ${ICONS.download} SVG
+        </button>
       </div>
     </div>
   `).join('');
@@ -89,7 +106,7 @@ window.selectSpecimen = function(id) {
   if (SPINNERS[id]) {
     activeSpecimenId = id;
     renderCrucible();
-    showToast(`⚡ Loaded Specimen: ${SPINNERS[id].name}`);
+    showToast(`Loaded Specimen: ${SPINNERS[id].name}`);
     window.scrollTo({ top: 220, behavior: 'smooth' });
   }
 };
@@ -98,8 +115,8 @@ window.togglePlayPause = function() {
   isPlaying = !isPlaying;
   document.documentElement.style.setProperty('--anim-state', isPlaying ? 'running' : 'paused');
   const btn = document.getElementById('btn-play-pause');
-  if (btn) btn.textContent = isPlaying ? '⏸' : '▶';
-  showToast(isPlaying ? '▶ Playback Resumed' : '⏸ Motion Paused');
+  if (btn) btn.innerHTML = isPlaying ? ICONS.pause : ICONS.play;
+  showToast(isPlaying ? 'Playback Resumed' : 'Motion Paused');
 };
 
 window.toggleWireframe = function() {
@@ -108,7 +125,7 @@ window.toggleWireframe = function() {
   if (layer) layer.classList.toggle('active', isWireframeActive);
   const btn = document.getElementById('btn-wireframe');
   if (btn) btn.classList.toggle('active', isWireframeActive);
-  showToast(isWireframeActive ? '📐 Vector Vertices Overlay: ON' : 'Vector Vertices: OFF');
+  showToast(isWireframeActive ? 'Vector Vertices Overlay: ON' : 'Vector Vertices: OFF');
 };
 
 // Export Code Sheet
@@ -149,7 +166,7 @@ window.copySnippet = function() {
   const pre = document.getElementById('sheet-code-pre');
   if (!pre) return;
   navigator.clipboard.writeText(pre.textContent).then(() => {
-    showToast('📋 Component code copied to clipboard!');
+    showToast('Component code copied to clipboard!');
   });
 };
 
@@ -166,7 +183,7 @@ window.downloadSvg = function(id = activeSpecimenId) {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  showToast(`📥 Exported genlayer-${id}-spinner.svg!`);
+  showToast(`Exported genlayer-${id}-spinner.svg!`);
 };
 
 // Controls
