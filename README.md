@@ -5,7 +5,7 @@
 ---
 
 ## 🌟 Live Demo & Deployment
-- 🌐 **Live Web Application**: [https://iamdudeGH.github.io/genlayer-spinner-suite/](https://iamdudeGH.github.io/genlayer-spinner-suite/)
+- 🌐 **Live Web Application**: [https://genlayer-spinner-suite.vercel.app/](https://genlayer-spinner-suite.vercel.app/)
 - 📦 **GitHub Repository**: [https://github.com/iamdudeGH/genlayer-spinner-suite](https://github.com/iamdudeGH/genlayer-spinner-suite)
 
 ---
