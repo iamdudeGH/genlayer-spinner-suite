@@ -1,45 +1,39 @@
-# 🪐 GenLayer Spinner Suite — Official Mission Submission
+# 🪐 GenLayer Kinetic Motion Suite — Official Submission
 
-> An iconic, production-grade 60fps loading animation suite engineered specifically for the GenLayer ecosystem, crafted directly from the official GenLayer vector geometry.
-
----
-
-## 🌟 Live Demo & Interactive Showcase
-🌐 **Live Deployment**: Deployable in 1 click to GitHub Pages, Netlify, or Vercel.
+> An iconic, production-grade 60fps kinetic motion suite engineered specifically for the GenLayer ecosystem. Built directly by animating the official GenLayer brand vector geometry (`gl-wing-l`, `gl-wing-r`, and `gl-core` diamond).
 
 ---
 
-## ✨ Features & Highlights
+## 🌟 Live Demo & Deployment
+- 🌐 **Live Web Application**: [https://iamdudeGH.github.io/genlayer-spinner-suite/](https://iamdudeGH.github.io/genlayer-spinner-suite/)
+- 📦 **GitHub Repository**: [https://github.com/iamdudeGH/genlayer-spinner-suite](https://github.com/iamdudeGH/genlayer-spinner-suite)
 
-### 1. 🔮 3D Interactive Holographic Gyro
-- Real-time mouse tracking that tilts the spinner in true 3D perspective (`rotateX`/`rotateY`) with specular neon reflections.
+---
 
-### 2. 🪐 Cinematic Consensus Deliberation Arena
-- An interactive simulation showing how the spinner coordinates multi-validator consensus across 5 independent validator nodes with streaming terminal logs and laser energy beams.
+## 🕊️ 5 Bespoke Pure Vector Kinetic Engines
 
-### 3. 🌓 Multi-Environment Background Tester
-- 1-click preview across:
-  - 🌌 **Cosmic Deep Space**
-  - 🌑 **Pitch OLED** (`#000000`)
-  - 💎 **Studio Glassmorphism**
+Every specimen physically animates and transforms the official GenLayer brand polygons with zero external dependencies:
 
-### 4. 🧬 5 Signature Spinner Variants
-1. **The Quantum Core (Hero Mark)**: Morphing dual-wing vector dynamics with a pulsing diamond crystal core in 3D orbital perspective.
-2. **The Consensus Orbit Matrix**: Floating GenLayer core surrounded by concentric validator node rings simulating multi-node equivalence verification.
-3. **The GenVM Hex Laser Pulsar**: Cybernetic hexagon with laser beam tracing for intelligent contract execution states.
-4. **The Neural Synapse Matrix**: Concentric plasma rings engineered for AI deliberation states.
-5. **The Minimalist Micro-Loader**: Ultra-lightweight 60fps dual-arc spinner for buttons, tooltips, and table rows.
+1. **`01 / Monolith Dual-Wing` (Organic Expansion & Breathing)**
+   - Organic bezier wing expansion, breathing scale, and an anti-gravity floating diamond.
+2. **`02 / Kinetic Vertex Laser Scanner` (Precision Laser Scan)**
+   - High-precision horizontal laser beam sweeping vertically through the mark with sequential phosphor polygon luminescence.
+3. **`03 / Vortex Galaxy Spiral` (Centripetal Singularity Swirl)**
+   - Silky-smooth centripetal inward spiral and billowing orbital whirlpool.
+4. **`04 / Eclipse Corona Orbit` (Spherical 3D Orbit)**
+   - Continuous tilted 3D spherical orbit around the core diamond with solar eclipse coronas.
+5. **`05 / 3D Gyro Precession Roll` (Spatial Gyroscopic Precession)**
+   - Hypnotic zero-gravity 3D gyroscope roll with specular shading transitions and diamond counter-tilt.
 
-### 5. 🎛️ Real-Time Interactive Customizer
-- **Speed Slider**: Real-time adjustment from 0.6s to 5.0s.
-- **Size Slider**: Dynamic scaling from 60px to 220px.
-- **Glow / Bloom Intensity**: Customizable ambient lighting.
-- **Color Themes**: Cyberpunk, Consensus Emerald, Electric Blue.
+---
 
-### 6. 📦 1-Click Integration Code
-- Pure CSS keyframe animations (zero heavy runtime dependencies).
-- Ready-to-use React JSX components.
-- Raw SVG vector mark definitions.
+## 🎮 Interactive Studio Features
+
+- **3D Spatial Gyro Tracking**: Interactive mouse and mobile `deviceorientation` 3D perspective tracking (`rotateX`/`rotateY`).
+- **Real-Time Physics Scrubbing**: Speed slider (`0.5s` – `4.0s`), Size scaling (`60px` – `220px`), and pause/scrub timeline.
+- **Vector Wireframe Overlay**: Press `[W]` to toggle coordinate vertex tracking.
+- **1-Click Multi-Framework Export**: Export instantly as **React JSX**, **Vue 3**, **Pure CSS**, or **Standalone Animated SVG**.
+- **Keyboard Shortcuts**: `[1-5]` Quick-load specimens, `[SPACE]` Play/Pause, `[W]` Wireframe.
 
 ---
 
@@ -47,7 +41,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/genlayer-spinner-suite.git
+git clone https://github.com/iamdudeGH/genlayer-spinner-suite.git
 
 # Install dependencies
 npm install
@@ -62,4 +56,4 @@ npm run build
 ---
 
 ## 📜 License
-MIT © 2026 Crafted for the GenLayer Community & Ecosystem.
+MIT © 2026 GenLayer Kinetic Motion Suite.
