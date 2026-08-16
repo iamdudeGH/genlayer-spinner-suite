@@ -619,8 +619,8 @@ body {
 
 .specimen-actions {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 0.5rem;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 0.6rem;
   margin-top: auto;
 }
 

@@ -14,8 +14,7 @@ const ICONS = {
   play: `<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
   pause: `<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`,
   inspect: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
-  code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-  download: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`
+  code: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`
 };
 
 // DOM Ready
@@ -110,7 +109,7 @@ function initSpatialGyro() {
   }
 }
 
-// Render Specimen Collection
+// Render Specimen Collection (Clean 2-button layout: Inspect & Code)
 function renderSpecimenGrid() {
   const grid = document.getElementById('specimen-grid');
   if (!grid) return;
@@ -131,10 +130,7 @@ function renderSpecimenGrid() {
           ${ICONS.inspect} Inspect
         </button>
         <button class="btn-spec-action" onclick="window.openCodeSheet('${s.id}')">
-          ${ICONS.code} Code
-        </button>
-        <button class="btn-spec-action" onclick="window.downloadSvg('${s.id}')">
-          ${ICONS.download} SVG
+          ${ICONS.code} Integration Code
         </button>
       </div>
     </div>
@@ -208,22 +204,6 @@ window.copySnippet = function() {
   navigator.clipboard.writeText(pre.textContent).then(() => {
     showToast('Component code copied to clipboard!');
   });
-};
-
-window.downloadSvg = function(id = activeSpecimenId) {
-  const s = SPINNERS[id];
-  if (!s || !s.standaloneSvg) return;
-
-  const blob = new Blob([s.standaloneSvg], { type: 'image/svg+xml' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `genlayer-${id}-spinner.svg`;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-  showToast(`Exported genlayer-${id}-spinner.svg!`);
 };
 
 // Controls
