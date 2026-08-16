@@ -6,7 +6,7 @@ let activeSpecimenId = 'monolith';
 let isPlaying = true;
 let isWireframeActive = false;
 let currentTab = 'react';
-let animSpeed = 2.0;
+let animSpeed = 2.2;
 let animSize = 150;
 
 // SVG Icons
@@ -44,7 +44,7 @@ function renderCrucible() {
     <!-- Top HUD -->
     <div class="stage-hud-top">
       <div>SPECIMEN: <span>${s.name.toUpperCase()}</span></div>
-      <div>CORE: <span>GENLAYER_DUAL_WING</span></div>
+      <div>CORE: <span>GENLAYER_KINETIC_LAB</span></div>
       <div>GPU: <span>60.0 FPS</span></div>
     </div>
 
@@ -119,7 +119,7 @@ function renderSpecimenGrid() {
     <div class="specimen-box" id="box-${s.id}">
       <div class="specimen-meta">
         <span class="specimen-index">${s.tag}</span>
-        <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-dim);">GPU OPTIMIZED</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--text-dim);">PURE KINETICS</span>
       </div>
       <div class="specimen-name">${s.name}</div>
       <div class="specimen-stage-mini">
